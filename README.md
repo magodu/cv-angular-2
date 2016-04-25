@@ -1,6 +1,4 @@
-# Angular 2 Beta Boilerplate
-
-## Description
+# Description
 
 This project is a full responsive Curriculum vitae online coded in Angular 2.
 

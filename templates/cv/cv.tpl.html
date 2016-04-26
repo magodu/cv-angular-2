@@ -23,12 +23,12 @@
                     <li id="menu-item-training" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-training"><a class="training" href="#training">Training</a></li>
                     <li id="menu-item-languages" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-languages"><a class="languages" href="#languages">Languages</a></li>
                     <li id="menu-item-contact" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-contact"><a class="contact" href="#contact">Contact</a></li>
-                    <li id="menu-item-idiom" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-idiom"><a class="idiom">Idiom</a>
+                    <!-- <li id="menu-item-idiom" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-idiom"><a class="idiom">Idiom</a>
                         <ul class="sub-menu">
-                            <li id="menu-idiom-1" class="menu-idiom-1"><a href="" ng-click="changeLanguage('en')">English</a></li>
-                            <li id="menu-idiom-2" class="menu-idiom-2"><a href="" ng-click="changeLanguage('es')">Spanish</a></li>
+                            <li id="menu-idiom-1" class="menu-idiom-1"><a href="" (click)="changeLanguage('en')">English</a></li>
+                            <li id="menu-idiom-2" class="menu-idiom-2"><a href="" (click)="changeLanguage('es')">Spanish</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
             </nav>
         </div>
@@ -124,17 +124,17 @@
                 </div>
             </div>
         </section>
-      <!--   <section id="skills">
+        <section id="skills">
             <div class="col-md-12 col-md-12 col-xs-12">
                 <header>
-                    <h1 class="section-title">{{'title_skills'}}</h1>
+                    <h1 class="section-title">Skills</h1>
                 </header>
                 <div class="skills-section">
                     <div class="skills-wrapper">
-                        <article ng-repeat="skill in cvData.skills">
+                        <article *ngFor="#skill of cvData?.skills; #i = index">
                             <div class="col-md-12 col-xs-12">
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-excellent" ng-class="{'progress-bar-excellent': skill.level >= 85, 'progress-bar-very-good': skill.level >= 70 && skill.level < 85, 'progress-bar-good': skill.level >= 60 && skill.level < 70, 'progress-bar-ok': skill.level >= 50 && skill.level < 60, 'progress-bar-bad': skill.level >= 0 && skill.level < 50}" role="progressbar" aria-valuenow="{{skill.level}}" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-excellent" [ngClass]="{'progress-bar-excellent': skill.level >= 85, 'progress-bar-very-good': skill.level >= 70 && skill.level < 85, 'progress-bar-good': skill.level >= 60 && skill.level < 70, 'progress-bar-ok': skill.level >= 50 && skill.level < 60, 'progress-bar-bad': skill.level >= 0 && skill.level < 50}" role="progressbar"  aria-valuemin="0" aria-valuemax="100">
                                         <i class="progress-bar-label">{{skill.flair}}</i>
                                         <span class="sr-only">{{skill.level}}%</span>
                                     </div>
@@ -145,6 +145,7 @@
                 </div>
             </div>
         </section>
+        <!-- 
         <section id="training">
             <div class="col-md-12 col-md-12 col-xs-12">
                 <header>

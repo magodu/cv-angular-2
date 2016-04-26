@@ -290,12 +290,12 @@ nav#primary a {
     width: 20px;
     height: 20px;
     text-indent: -9999px;
-    background: transparent url('../images/nav-dot.png') 4px 4px no-repeat;
+    background: transparent url('../../images/nav-dot.png') 4px 4px no-repeat;
 }
 
 nav#primary a:hover,
 nav#primary a.active {
-    background: transparent url('../images/nav-dot.png') 4px -16px no-repeat;
+    background: transparent url('../../images/nav-dot.png') 4px -16px no-repeat;
 }
 
 nav#primary h1 {

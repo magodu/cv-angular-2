@@ -4,10 +4,12 @@ import {HttpService} from '../shared/http.service';
 @Injectable()
 export class CurriculumVitaeService {
 
+	urlData: string = 'https://dl.dropboxusercontent.com/u/2251063/appData/CVData/jsonCV_EN.json';
+
 	constructor(private _httpService: HttpService) { }
 
-	getData(urlData: string) {
-		return this._httpService.httpGet(urlData));
+	getData() {
+		return this._httpService.httpGet(this.urlData));
 	}
 
 

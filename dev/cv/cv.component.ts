@@ -1,38 +1,53 @@
-import {Component} from 'angular2/core';
-import {OnInit} from "angular2/core";
+import {Component, OnInit} from 'angular2/core';
 import {HttpService} from "../shared/http.service";
 import {Http, Response} from "angular2/http";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/Rx';
 import {Headers} from "angular2/http";
 import {CurriculumVitaeService} from './cv.service';
-
+import {GoogleMapsComponent} from './google-maps.component';
 
 
 @Component({
 	selector: 'my-cv',
 	templateUrl: 'templates/cv/cv.tpl.html',
 	providers: [CurriculumVitaeService],
+	directives: [GoogleMapsComponent]
 })
 
 export class CVComponent implements OnInit {
-	urlData: string = 'https://dl.dropboxusercontent.com/u/2251063/appData/CVData/jsonCV_EN.json';
+
+	mapOptions: Object = {
+		zoom: 4,
+		lat: 42.3133735,
+        lng: -71.0571571
+	};
+	//urlData: string = 'https://dl.dropboxusercontent.com/u/2251063/appData/CVData/jsonCV_EN.json';
 	response: string;
 	cvData: Object;
+	currentYear: Date;
+
 
 	constructor(private _curriculumVitaeService: CurriculumVitaeService) { }
 
+    getCurrentYear() {
+		let currentDate = new Date();
+		this.currentYear = currentDate.getFullYear();
+	}
+
 	getData() {
-		this._curriculumVitaeService.getData(this.urlData).subscribe(
-			data => { this.cvData = data.data },                // the first argument is a function which runs on success
-			err => console.error(err),                          // the second argument is a function which runs on error
-			() => console.log('done loading data', this.cvData) // the third argument is a function which runs on completion
+		this._curriculumVitaeService.getData().subscribe(
+			data => { this.cvData = data.data },       // the first argument is a function which runs on success
+			err => console.error(err),                 // the second argument is a function which runs on error
+			() => console.log('done loading data')     // the third argument is a function which runs on completion
 		);
 	}
 
 	ngOnInit(): any {
         this.getData();
+        this.getCurrentYear();
     }
+
 
     calculatePeriod(dateFrom: string, dateTo: string) {
         let period = '',

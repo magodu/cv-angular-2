@@ -1,6 +1,5 @@
 import {Directive, OnInit} from 'angular2/core';
 import {ElementRef} from 'angular2/core';
-import {OnInit} from 'angular2/core';
 import {Renderer} from 'angular2/core';
 
 @Directive({

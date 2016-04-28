@@ -1,4 +1,4 @@
-import {Directive, OnChanges} from 'angular2/core';
+import {Directive, OnInit} from 'angular2/core';
 import {ElementRef} from 'angular2/core';
 import {OnInit} from 'angular2/core';
 import {Renderer} from 'angular2/core';
@@ -8,7 +8,7 @@ import {Renderer} from 'angular2/core';
 })
 
 
-export class BackgroundDirective implements OnChanges {
+export class BackgroundDirective implements OnInit {
 
 	constructor(private _elRef: ElementRef, private _renderer: Renderer) {}
 

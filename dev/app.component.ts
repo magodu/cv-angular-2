@@ -12,5 +12,4 @@ import {CVComponent} from "./cv/cv.component";
 
 export class AppComponent {
 
-
 }

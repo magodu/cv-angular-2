@@ -6,13 +6,14 @@ import 'rxjs/Rx';
 import {Headers} from "angular2/http";
 import {CurriculumVitaeService} from './cv.service';
 import {GoogleMapsComponent} from './google-maps.component';
+import {ParallaxDirective} from './parallax.directive';
 
 
 @Component({
 	selector: 'my-cv',
 	templateUrl: 'templates/cv/cv.tpl.html',
 	providers: [CurriculumVitaeService],
-	directives: [GoogleMapsComponent]
+	directives: [ParallaxDirective, GoogleMapsComponent]
 })
 
 export class CVComponent implements OnInit {

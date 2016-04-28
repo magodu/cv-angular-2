@@ -7,13 +7,14 @@ import {Headers} from "angular2/http";
 import {CurriculumVitaeService} from './cv.service';
 import {GoogleMapsComponent} from './google-maps.component';
 import {ParallaxDirective} from './parallax.directive';
+import {BackgroundDirective} from './background.directive';
 
 
 @Component({
 	selector: 'my-cv',
 	templateUrl: 'templates/cv/cv.tpl.html',
 	providers: [CurriculumVitaeService],
-	directives: [ParallaxDirective, GoogleMapsComponent]
+	directives: [ParallaxDirective, BackgroundDirective, GoogleMapsComponent]
 })
 
 export class CVComponent implements OnInit {
@@ -23,7 +24,6 @@ export class CVComponent implements OnInit {
 		lat: 42.3133735,
         lng: -71.0571571
 	};
-	//urlData: string = 'https://dl.dropboxusercontent.com/u/2251063/appData/CVData/jsonCV_EN.json';
 	response: string;
 	cvData: Object;
 	currentYear: Date;

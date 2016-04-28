@@ -11,10 +11,12 @@ import {Renderer} from 'angular2/core';
 
 
 export class ParallaxDirective {
-	/*private windowWidth = $(window).width(); */
+	private windowWidth = $(window).width(); 
 	const MOBILE_WIDTH = 760;
 	private FixedHeader;
 
 	constructor(private _elRef: ElementRef, private _renderer: Renderer) { }
+
+	console.log('Hola')
 
 }

@@ -14,6 +14,10 @@
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
     <script src="node_modules/angular2/bundles/http.js"></script>
+    <script src="node_modules/angular2-google-maps/bundles/angular2-google-maps.js"></script>
+
+    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+    
     <!-- 2. Configure SystemJS -->
     <script>
         System.config({
@@ -21,12 +25,17 @@
                 app: {
                     format: 'register',
                     defaultExtension: 'js'
+                },
+                'angular2-google-maps': {
+                    defaultExtension: 'js'
                 }
             }
         });
         System.import('app/boot')
                 .then(null, console.error.bind(console));
     </script>
+    <!-- 3. User files -->
+     
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/css/main.css">

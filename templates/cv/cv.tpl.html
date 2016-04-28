@@ -131,10 +131,10 @@
                 </header>
                 <div class="skills-section">
                     <div class="skills-wrapper">
-                        <article *ngFor="#skill of cvData?.skills; #i = index">
+                        <article *ngFor="#skill of cvData?.skills">
                             <div class="col-md-12 col-xs-12">
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-excellent" [ngClass]="{'progress-bar-excellent': skill.level >= 85, 'progress-bar-very-good': skill.level >= 70 && skill.level < 85, 'progress-bar-good': skill.level >= 60 && skill.level < 70, 'progress-bar-ok': skill.level >= 50 && skill.level < 60, 'progress-bar-bad': skill.level >= 0 && skill.level < 50}" role="progressbar"  aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-excellent" [ngClass]="{'progress-bar-excellent': skill.level >= 85, 'progress-bar-very-good': skill.level >= 70 && skill.level < 85, 'progress-bar-good': skill.level >= 60 && skill.level < 70, 'progress-bar-ok': skill.level >= 50 && skill.level < 60, 'progress-bar-bad': skill.level >= 0 && skill.level < 50}" role="progressbar" aria-valuemin="0" aria-valuemax="100">
                                         <i class="progress-bar-label">{{skill.flair}}</i>
                                         <span class="sr-only">{{skill.level}}%</span>
                                     </div>
@@ -145,14 +145,13 @@
                 </div>
             </div>
         </section>
-        <!-- 
         <section id="training">
             <div class="col-md-12 col-md-12 col-xs-12">
                 <header>
-                    <h1 class="section-title">{{'title_training'}}</h1>
+                    <h1 class="section-title">Training</h1>
                 </header>
-                <h2 class="courses">{{'education'}}</h2>
-                <article ng-repeat="form in cvData.training">
+                <h2 class="courses">Education</h2>
+                <article  *ngFor="#form of cvData?.training">
                     <div class="col-md-10 col-sm-10 col-xs-12">
                         <div class="training-section">
                             <div class="col-md-12 hidden-mobile">
@@ -171,11 +170,11 @@
                     </div>
                     <div class="col-md-2 col-sm-2"></div>
                 </article>
-                <h2 class="courses">{{'courses'}}</h2>
+                <h2 class="courses">Courses</h2>
                 <div class="courses">
                     <ul class="courses">
-                        <li ng-repeat="course in cvData.complementaryTraining">
-                            <img ng-src="images/{{course.image}}">
+                        <li *ngFor="#course of cvData?.complementaryTraining">
+                            <img src="images/{{course.image}}">
                             <h3>{{course.title}}</h3>
                             <p>{{course.description}}</p>
                         </li>
@@ -187,14 +186,14 @@
         <section id="languages">
             <div class="col-md-12 col-md-12 col-xs-12">
                 <header>
-                    <h1 class="section-title">{{'title_languages'}}</h1>
+                    <h1 class="section-title">Languages</h1>
                 </header>
                 <div class="languages-section">
                     <div class="languages-wrapper">
-                        <article ng-repeat="language in cvData.languages">
+                        <article *ngFor="#language of cvData?.languages">
                             <div class="col-md-12 col-xs-12">
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-excellent" ng-class="{'progress-bar-excellent': language.level >= 85, 'progress-bar-very-good': language.level >= 70 && language.level < 85, 'progress-bar-good': language.level >= 60 && language.level < 70, 'progress-bar-ok': language.level >= 50 && language.level < 60, 'progress-bar-bad': language.level >= 0 && language.level < 50}" role="progressbar" aria-valuenow="{{language.level}}" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-excellent" [ngClass]="{'progress-bar-excellent': language.level >= 85, 'progress-bar-very-good': language.level >= 70 && language.level < 85, 'progress-bar-good': language.level >= 60 && language.level < 70, 'progress-bar-ok': language.level >= 50 && language.level < 60, 'progress-bar-bad': language.level >= 0 && language.level < 50}" role="progressbar" aria-valuemin="0" aria-valuemax="100">
                                         <i class="progress-bar-label">{{language.language}}</i>
                                         <span class="sr-only">{{language.level}}%</span>
                                     </div>
@@ -208,20 +207,21 @@
         <section id="contact">
             <div class="contact-section">
                 <header>
-                    <h1 class="section-title-white">{{'title_contact'}}</h1>
+                    <h1 class="section-title-white">Contact</h1>
                 </header>
                 <div class="container-contact">
-                    <div class="contact-text"><span>{{'contactTextWarning'}} </span>{{cvData.contact.textExplanation}}</div>
+                    <div class="contact-text"><span>Notice: </span>{{cvData?.contact?.textExplanation}}</div>
                     <div class="map-wrapper">
-                        <div google-maps id="googleMaps" map-options="mapOptions" markers="cities"></div>
+                        <!-- <div googleMaps id="googleMaps" [mapOptions]="mapOptions" [markers]="cities" [(map)]="map"></div> -->
+                        <google-maps [myMapOptions]="mapOptions"></google-maps>
                     </div>
                 </div>
                 <div class="col-md-12 col-xs-12 container-contact2">
                     <div class="social-widgets">
                         <ul class="social-links horizontal">
-                            <li class="social-link-item" ng-repeat="item in cvData.social">
-                                <a ng-href="{{item.url}}" title="{{item.description}}" target="{{item.name == 'email' ? '_self' : '_blank'}}" ng-class="{'phone-link': item.name == 'cell_phone'}">
-                                    <img id="{{item.name}}" ng-src="images/{{item.image}}" width="50" height="50" alt="{{item.description}}" />
+                            <li class="social-link-item" *ngFor="#item of cvData?.social">
+                                <a href="{{item.url}}" title="{{item.description}}" target="{{item.name == 'email' ? '_self' : '_blank'}}" [ngClass]="{'phone-link': item.name == 'cell_phone'}">
+                                    <img id="{{item.name}}" src="images/{{item.image}}" width="50" height="50" alt="{{item.description}}" />
                                 </a>
                             </li>
                         </ul>
@@ -230,13 +230,13 @@
                 </div>
                 <div id="footerwrap">
                     <footer id="footer" class="pagewidth">
-                        <p class="back-top"><a class="main" href="#header">{{'buttonToTop'}}</a></p>
+                        <p class="back-top"><a class="main" href="#header">Back to top</a></p>
                         <div class="footer-text clearfix">
-                            <div>{{cvData.personalData.name}} • {{currentYear}}</div>
+                            <div>{{cvData?.personalData?.name}} • {{currentYear}}</div>
                         </div>
                     </footer>
                 </div>
             </div>
-        </section> -->
+        </section>
     </div>
 </div>

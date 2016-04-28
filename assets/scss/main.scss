@@ -1280,6 +1280,16 @@ br.courses {
     float: right;
     width: 600px;
     padding: 10px;
+
+    h3.info-window {
+        font-weight: bold;
+        font-size: 25px;
+        margin: 0;
+    }
+
+    .sebm-google-map-container-inner {
+        border-radius: 10px;
+    }
 }
 
 .contact-text {

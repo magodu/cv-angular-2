@@ -10,7 +10,7 @@ import {Renderer} from 'angular2/core';
 })
 
 
-export class ParallaxDirective implements ngOnInit, AfterViewChecked {
+export class ParallaxDirective implements OnInit, AfterViewChecked {
 	static MOBILE_WIDTH: number;
 	private windowWidth: number;
 	headerHeight: number = 0;

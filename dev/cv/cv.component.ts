@@ -28,7 +28,9 @@ export class CVComponent implements OnInit {
 	response: string;
 	cvData: Object;
 	currentYear: Date;
-
+	
+	public phoneDivOpened: boolean = false;
+	public phoneData: string[] = [];
 
 	constructor(private _curriculumVitaeService: CurriculumVitaeService) { }
 
@@ -50,6 +52,10 @@ export class CVComponent implements OnInit {
         this.getCurrentYear();
     }
 
+    showPhones() {
+		this.phoneDivOpened = !this.phoneDivOpened;
+		this.phoneData = this.cvData.personalData.phones;
+    }
 
     calculatePeriod(dateFrom: string, dateTo: string) {
         let period = '',
@@ -63,8 +69,8 @@ export class CVComponent implements OnInit {
             days = Math.floor(dif / (1000 * 60 * 60 * 24)),
             months = 0,
             years = 0,
-            txtYear = '',
-            txtMonth = '';
+            txtMonth = '',
+            txtYear = '';
 
         months = Math.ceil(days / 30);
         period = months > 1 ? '(' + months + ' months)' : '(' + months + ' month)';
@@ -83,5 +89,6 @@ export class CVComponent implements OnInit {
 
         return period;
     }
+
 
 }

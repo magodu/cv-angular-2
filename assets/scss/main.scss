@@ -1431,10 +1431,10 @@ br.courses {
     height: 84px;
     border-radius: 10px;
     padding: 10px;
-}
 
-#phone-wrapper > span {
-    color: white;
-    width: 100%;
-    font-size: 18px;
+    .phone-number {
+        color: white;
+        width: 100%;
+        font-size: 18px;
+    }
 }

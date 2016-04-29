@@ -212,21 +212,23 @@
                 <div class="container-contact">
                     <div class="contact-text"><span>Notice: </span>{{cvData?.contact?.textExplanation}}</div>
                     <div class="map-wrapper">
-                        <!-- <div googleMaps id="googleMaps" [mapOptions]="mapOptions" [markers]="cities" [(map)]="map"></div> -->
                         <google-maps [myMapOptions]="mapOptions"></google-maps>
                     </div>
                 </div>
                 <div class="col-md-12 col-xs-12 container-contact2">
                     <div class="social-widgets">
                         <ul class="social-links horizontal">
-                            <li class="social-link-item" *ngFor="#item of cvData?.social">
-                                <a href="{{item.url}}" title="{{item.description}}" target="{{item.name == 'email' ? '_self' : '_blank'}}" [ngClass]="{'phone-link': item.name == 'cell_phone'}">
+                            <li class="social-link-item" *ngFor="#item of cvData?.social" [ngSwitch]="item.name">
+                                <a  *ngSwitchWhen="'cell_phone'" title="{{item.description}}" target="'_blank'" class="phone-link" (click)="showPhones()">
+                                    <img id="{{item.name}}" src="images/{{item.image}}" width="50" height="50" alt="{{item.description}}" />
+                                </a>
+                                <a *ngSwitchDefault href="{{item.url}}" title="{{item.description}}" target="{{item.name == 'email' ? '_self' : '_blank'}}">
                                     <img id="{{item.name}}" src="images/{{item.image}}" width="50" height="50" alt="{{item.description}}" />
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <animated-phone></animated-phone>
+                    <animated-phone [phoneDivOpened]="phoneDivOpened" [phoneData]="phoneData"></animated-phone>
                 </div>
                 <div id="footerwrap">
                     <footer id="footer" class="pagewidth">

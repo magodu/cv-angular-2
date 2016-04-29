@@ -10,8 +10,6 @@ import {Renderer} from 'angular2/core';
 
 
 export class ParallaxDirective implements OnInit, AfterViewChecked {
-	static MOBILE_WIDTH: number;
-	private windowWidth: number;
 	headerHeight: number = 0;
 
 	constructor(private _elRef: ElementRef, private _renderer: Renderer) {
@@ -97,12 +95,12 @@ export class ParallaxDirective implements OnInit, AfterViewChecked {
     }
 
 	private initFixedHeader() {
-		let headerHeight = $('#header hgroup').outerHeight() - $('#nav-bar').outerHeight();
-		if ($('body').hasClass('ie')) {
-			$('html, body').addClass('iefix');
+		let headerHeight = jQuery('#header hgroup').outerHeight() - jQuery('#nav-bar').outerHeight();
+		if (jQuery('body').hasClass('ie')) {
+			jQuery('html, body').addClass('iefix');
 		}
 
-		$(window).scroll(activateFixedHeader(headerHeight));
+		jQuery(window).scroll(activateFixedHeader(headerHeight));
 	}
 
 	/* Set navigation dots to an active state as the user scrolls */
@@ -194,7 +192,7 @@ function languagesHandler() {
 
 	if (jQuery(document).scrollTop() >= section6Top) {
 		_article.each(function() {
-			jQuery(this).css('width', $(this).find('span').text());
+			jQuery(this).css('width', jQuery(this).find('span').text());
 		});
 	}
 }

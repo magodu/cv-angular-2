@@ -47,6 +47,10 @@ export class CVComponent implements OnInit {
 		);
 	}
 
+	changeLanguage(language: string) {
+		console.log('Change to ' + language);
+	}
+
 	ngOnInit(): any {
         this.getData();
         this.getCurrentYear();

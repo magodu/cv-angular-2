@@ -6,7 +6,7 @@ import {
     ANGULAR2_GOOGLE_MAPS_PROVIDERS,
     ANGULAR2_GOOGLE_MAPS_DIRECTIVES
 } from 'angular2-google-maps/core';
-import {Marker} from "./shared/marker.interface";
+
 
 @Component({
     selector: 'google-maps',

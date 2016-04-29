@@ -6,6 +6,7 @@ import 'rxjs/Rx';
 import {Headers} from "angular2/http";
 import {CurriculumVitaeService} from './cv.service';
 import {GoogleMapsComponent} from './google-maps.component';
+import {AnimatedPhoneComponent} from './animated-phone.component';
 import {ParallaxDirective} from './parallax.directive';
 import {BackgroundDirective} from './background.directive';
 
@@ -14,7 +15,7 @@ import {BackgroundDirective} from './background.directive';
 	selector: 'my-cv',
 	templateUrl: 'templates/cv/cv.tpl.html',
 	providers: [CurriculumVitaeService],
-	directives: [ParallaxDirective, BackgroundDirective, GoogleMapsComponent]
+	directives: [ParallaxDirective, BackgroundDirective, GoogleMapsComponent, AnimatedPhoneComponent]
 })
 
 export class CVComponent implements OnInit {

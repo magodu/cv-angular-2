@@ -8,7 +8,6 @@ import {Renderer} from 'angular2/core';
 	host: {}
 })
 
-
 export class ParallaxDirective implements OnInit, AfterViewChecked {
 	headerHeight: number = 0;
 

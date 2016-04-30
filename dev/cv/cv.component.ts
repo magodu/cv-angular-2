@@ -48,6 +48,7 @@ export class CVComponent implements OnInit {
 	}
 
 	changeLanguage(language: string) {
+		// Angular 2 functionality not yet released
 		console.log('Change to ' + language);
 	}
 

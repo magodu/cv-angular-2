@@ -24,6 +24,25 @@ export class ParallaxDirective implements OnInit, AfterViewChecked {
 		const _windowWidth = ParallaxDirective.windowWidth;
 		const _MOBILE_WIDTH = ParallaxDirective.MOBILE_WIDTH;
 
+		/* Main Menu */
+		jQuery('body #menu-icon').click(function(event) {
+			event.preventDefault();
+			jQuery('#main-nav').fadeToggle();
+			jQuery('#wrapper #top-nav').hide();
+			jQuery(this).toggleClass('active');
+		});
+
+
+		/* Show/hide dot lav labels on hover */
+		jQuery('nav#primary a').hover(
+			function() {
+				jQuery(this).prev('h1').show();
+			},
+			function() {
+				jQuery(this).prev('h1').hide();
+			}
+		);
+
 		/* Next/prev and primary nav btn click handlers */
 		jQuery('a.main').click(function() {
 			hideMenu(_windowWidth, _MOBILE_WIDTH);
@@ -70,26 +89,6 @@ export class ParallaxDirective implements OnInit, AfterViewChecked {
 	}
 
 	ngAfterViewChecked() {
-
-		/* Main Menu */
-		jQuery('body #menu-icon').click(function(event) {
-			event.preventDefault();
-			jQuery('#main-nav').fadeToggle();
-			jQuery('#wrapper #top-nav').hide();
-			jQuery(this).toggleClass('active');
-		});
-
-	
-		/* Show/hide dot lav labels on hover */
-		jQuery('nav#primary a').hover(
-			function() {
-				jQuery(this).prev('h1').show();
-			},
-			function() {
-				jQuery(this).prev('h1').hide();
-			}
-		);
-
 		this.init();	
     }
 

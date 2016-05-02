@@ -4,7 +4,7 @@
     Author: Mario González Duarte
     http://www.mariogonzalezduarte.es
 *****************************************************************/
-
+$titlesColor: #21a97e;
 
 /*
  Global reset
@@ -164,7 +164,7 @@ body {
 }
 
 h1 {
-    color: #21a97e;
+    color: $titlesColor;
 }
 
 a,
@@ -175,7 +175,7 @@ a:visited {
     -moz-transition: color 0.25s ease-out;
     -o-transition: color 0.25s ease-out;
     transition: color 0.25s ease-out;
-    color: #21a97e;
+    color: $titlesColor;
     outline: none;
     text-decoration: none;
 }
@@ -253,16 +253,25 @@ header#header {
 #branding {
     width: 100%;
     background: #fff;
+
+    h1 {
+        width: 940px;
+        padding: 10px 15px;
+        margin: 0 auto;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: bold;
+    }
 }
 
-#branding h1 {
+/*#branding h1 {
     width: 940px;
     padding: 10px 15px;
     margin: 0 auto;
     text-transform: uppercase;
     font-size: 18px;
     font-weight: bold;
-}
+}*/
 
 .visible-mobile {
     display: none !important;
@@ -278,66 +287,39 @@ nav#primary {
     top: 50%;
     right: 16px;
     margin-top: -40px;
-}
 
-nav#primary li {
-    position: relative;
-    height: 20px;
-}
+    li {
+        position: relative;
+        height: 20px;
+    }
 
-nav#primary a {
-    display: block;
-    width: 20px;
-    height: 20px;
-    text-indent: -9999px;
-    background: transparent url('../../images/nav-dot.png') 4px 4px no-repeat;
-}
+    a {
+        display: block;
+        width: 20px;
+        height: 20px;
+        text-indent: -9999px;
+        background: transparent url('../../images/nav-dot.png') 4px 4px no-repeat;
+    }
 
-nav#primary a:hover,
-nav#primary a.active {
-    background: transparent url('../../images/nav-dot.png') 4px -16px no-repeat;
-}
+    a:hover, a.active {
+        background: transparent url('../../images/nav-dot.png') 4px -16px no-repeat;
+    }
 
-nav#primary h1 {
-    position: absolute;
-    right: 22px;
-    top: -7px;
-    display: none;
-    padding: 4px 20px 4px 7px;
-    ;
-    color: #fff;
-    white-space: nowrap;
-    background: transparent url('../../images/nav-arrow.png') 100% 50% no-repeat;
+    h1 {
+        position: absolute;
+        right: 22px;
+        top: -7px;
+        display: none;
+        padding: 4px 20px 4px 7px;
+        color: #fff;
+        white-space: nowrap;
+        background: transparent url('../../images/nav-arrow.png') 100% 50% no-repeat;
+    }
+
 }
 
 nav.next-prev {
     margin: 20px 0 0 0;
-}
-
-a.prev,
-a.next {
-    display: block;
-    width: 15px;
-    height: 11px;
-    text-indent: -9999px;
-}
-
-a.prev {
-    margin: 0 auto 5px auto;
-    background: transparent url('../images/scroll-arrow-up.png') 0 0 no-repeat;
-}
-
-a.prev:hover {
-    background: transparent url('../images/scroll-arrow-up.png') 0 -11px no-repeat;
-}
-
-a.next {
-    margin: 5px auto 0 auto;
-    background: transparent url('../images/scroll-arrow-down.png') -1px 0 no-repeat;
-}
-
-a.next:hover {
-    background: transparent url('../images/scroll-arrow-down.png') -1px -11px no-repeat;
 }
 
 #footer a {
@@ -356,12 +338,38 @@ a.next:hover {
     position: relative;
     margin: 0 auto;
     line-height: 1.7;
+
+    h1 {
+        margin: 0 0 25px 0;
+        font-weight: normal;
+        line-height: 65px;
+    }
+
+    h2 {
+        margin: 0 0 15px 0;
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    section {
+        width: 100%;
+        margin-left: 30px;
+
+        .photograph {
+            visibility: hidden;
+            position: relative;
+        }
+
+        .photographBack {}
+
+        .photographFixed {
+            position: fixed;
+            top: 145px;
+            right: -30px;
+        }
+    }
 }
 
-#content section {
-    width: 100%;
-    margin-left: 30px;
-}
 
 #main,
 #experience,
@@ -380,6 +388,14 @@ a.next:hover {
     height: 550px;
 }
 
+.name {
+    font-size: 2.5em;
+}
+
+.description {
+    font-size: 2em;
+}
+
 #experience {
     position: absolute;
     top: 0px;
@@ -387,19 +403,6 @@ a.next:hover {
 
 #skills {
     position: absolute;
-    /*top: 1200px;*/
-}
-
-#content h1 {
-    margin: 0 0 25px 0;
-    font-weight: normal;
-    line-height: 65px;
-}
-
-#content h2 {
-    margin: 0 0 15px 0;
-    font-weight: bold;
-    font-size: 25px;
 }
 
 .section-title {
@@ -422,98 +425,16 @@ a.next:hover {
 #contact {
     margin: 0 !important;
     position: absolute;
+
+    .contact-section {
+        position: relative;
+        background-color: black;
+        height: 1000px;
+        font-weight: 100;
+        margin: 0 0 2em 0;
+        font-size: 1.2rem
+    }
 }
-
-#contact .contact-section {
-    position: relative;
-    background-color: black;
-    height: 1000px;
-    font-weight: 100;
-    margin: 0 0 2em 0;
-    font-size: 1.2rem
-}
-
-
-/* foreground (ballons/landscape) */
-
-#parallax-bg3 {
-    z-index: 3;
-    position: fixed;
-    left: 50%;
-    /* align left edge with center of viewport */
-    top: 0;
-    width: 940px;
-    margin-left: -470px;
-    /* move left by half element's width */
-}
-
-
-/* balloon */
-
-#bg3-3 {
-    position: absolute;
-    top: 2864px;
-    left: 403px;
-}
-
-#bg3-4 {
-    position: absolute;
-    top: 2700px;
-    left: -85px;
-}
-
-
-/* midground (clouds) */
-
-#parallax-bg2 {
-    z-index: 2;
-    position: fixed;
-    left: 50%;
-    /* align left edge with center of viewport */
-    top: 0;
-    width: 1200px;
-    margin-left: -600px;
-    /* move left by half element's width */
-}
-
-#bg2-4 {
-    position: absolute;
-    top: 2180px;
-    left: 250px;
-}
-
-#bg2-5 {
-    position: absolute;
-    top: 2500px;
-    left: 890px;
-}
-
-
-/* background (clouds) */
-
-#parallax-bg1 {
-    z-index: 1;
-    position: fixed;
-    left: 50%;
-    /* align left edge with center of viewport */
-    top: 0;
-    width: 1200px;
-    margin-left: -600px;
-    /* move left by half element's width */
-}
-
-#bg1-3 {
-    position: absolute;
-    top: 1900px;
-    left: -220px;
-}
-
-#bg1-4 {
-    position: absolute;
-    top: 2020px;
-    left: 450px;
-}
-
 
 /* 
 HEADER
@@ -533,26 +454,17 @@ HEADER
     height: 500px;
     text-align: center;
     position: relative;
-}
 
-#header hgroup {
-    display: table-cell;
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    /* vertical align trick */
-    vertical-align: middle;
-    width: 100%;
-    max-width: 100%;
+    hgroup {
+        display: table-cell;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        /* vertical align trick */
+        vertical-align: middle;
+        width: 100%;
+        max-width: 100%;
+    }
 }
-
-.name {
-    font-size: 2.5em;
-}
-
-.description {
-    font-size: 2em;
-}
-
 
 /* 
 MAIN NAVIGATION
@@ -652,13 +564,6 @@ MAIN NAVIGATION
     cursor: pointer;
     color: #FFF;
 }
-
-
-/*
-.idiom-image {
-    float: left;
-    margin-right: 5px;
-}   */
 
 
 /* main level link :hover */
@@ -913,6 +818,10 @@ MAIN NAVIGATION
 .photograph-image {
     position: absolute;
     right: 6em;
+
+    img {
+        width: 150px;
+    }
 }
 
 .photograph .photograph-image img,
@@ -922,26 +831,6 @@ MAIN NAVIGATION
     border-radius: 20em;
 }
 
-.photograph-image img {
-    width: 150px;
-}
-
-#content section {
-    width: 100%;
-}
-
-#content section .photograph {
-    visibility: hidden;
-    position: relative;
-}
-
-#content section .photographBack {}
-
-#content section .photographFixed {
-    position: fixed;
-    top: 145px;
-    right: -30px;
-}
 
 div #startTitle {
     position: absolute;
@@ -967,39 +856,39 @@ div #startTitle {
     margin: 0 0 2em 0;
     float: left;
     font-size: 1.2rem
+
+    .date {
+        font-size: 15px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .place {
+        font-size: 15px;
+    }
 }
 
 .experience-header {
     position: relative;
     width: 100%;
     height: 30px;
-}
 
-.experience-header .title {
-    font-weight: bold;
-    position: absolute;
-    left: 0px;
-}
+    .title {
+        font-weight: bold;
+        position: absolute;
+        left: 0px;
+    }
 
-.experience-header .companyLogo {
-    position: absolute;
-    right: -12px;
-}
+    .companyLogo {
+        position: absolute;
+        right: -12px;
+    }
 
-.experienceSection .date {
-    font-size: 15px;
-    float: left;
-    margin-right: 10px;
-}
-
-.experienceSection .place {
-    font-size: 15px;
-}
-
-.experienceSection .description {
-    text-align: justify;
-    font-size: 20px;
-    line-height: normal;
+    .description {
+        text-align: justify;
+        font-size: 20px;
+        line-height: normal;
+    }
 }
 
 

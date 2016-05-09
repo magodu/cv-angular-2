@@ -32,8 +32,11 @@ export class CVComponent implements OnInit, AfterViewInit {
 	cvData: Object;
 	currentYear: number;
 
+	modalData: string;
+
 	public phoneDivOpened: boolean = false;
 	public phoneData: string[] = [];
+
 
 	constructor(private _curriculumVitaeService: CurriculumVitaeService) { }
 
@@ -74,16 +77,21 @@ export class CVComponent implements OnInit, AfterViewInit {
 		console.log('Change language to ' + language);
 	}
 
+    showPhones() {
+		this.phoneDivOpened = !this.phoneDivOpened;
+		this.phoneData = this.cvData.personalData.phones;
+    }
+
 	ngAfterViewInit() {
         this.getData();
     }
+
     ngOnInit(): any {
         this.getCurrentYear();
     }
 
-    showPhones() {
-		this.phoneDivOpened = !this.phoneDivOpened;
-		this.phoneData = this.cvData.personalData.phones;
+	onModalOutput(value) {
+        this.modalData = value;
     }
 
     calculatePeriod(dateFrom: string, dateTo: string) {

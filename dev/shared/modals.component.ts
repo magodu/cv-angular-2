@@ -1,10 +1,11 @@
-import { Component, ViewChild } from 'angular2/core';
+import { Component, ViewChild, EventEmitter} from 'angular2/core';
 import { MODAL_DIRECTIVES, ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 @Component({
     selector: 'my-modal-component',
     templateUrl: 'templates/modals.tpl.html',
-    directives: [MODAL_DIRECTIVES]
+    directives: [MODAL_DIRECTIVES],
+    outputs: ['modalOutput']
 })
 export class ModalsComponent {
 
@@ -12,13 +13,14 @@ export class ModalsComponent {
 	@ViewChild('alertModal') _alertModal: ModalComponent;      //'_alertModal' is the identifier #alertModal in the template
     @ViewChild('loadingModal') _loadingModal: ModalComponent;  //'_loadingModal' is the identifier #loadingModal in the template
 
-    output: string;   //TODO: expose value to parent component
+    modalOutput = new EventEmitter<string>();
+    output: string;
 
     animation: boolean = true;
     keyboard: boolean = false;
     backdrop: string | boolean = 'static';
 
-    alertModalDefault: Object {
+    alertModalDefault: Object = {
 		type: 'danger',
 		title: 'Error',
 		bodyText: ''
@@ -26,14 +28,17 @@ export class ModalsComponent {
 
     closed() {
         this.output = '(closed)';
+        this.modalOutput.emit(this.output);
     }
 
     dismissed() {
         this.output = '(dismissed)';
+        this.modalOutput.emit(this.output);
     }
 
     opened() {
         this.output = '(opened)';
+        this.modalOutput.emit(this.output);
     }
 
     closeModal(modal: ModalComponent) {
@@ -70,10 +75,3 @@ export class ModalsComponent {
         this._loadingModal.open();
     }
 }
-
-
-/*TODO: Make an interface for values can take backdropOptions*/
-/*interface backdropOptions {
-    true, false, 'static'
-}
-*/

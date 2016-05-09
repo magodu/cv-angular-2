@@ -1,4 +1,4 @@
-import {Component, OnChanges, provide} from 'angular2/core';
+import {Component, OnInit, provide} from 'angular2/core';
 import {
     MapsAPILoader,
     NoOpMapsAPILoader,
@@ -42,7 +42,7 @@ import {
         </sebm-google-map>
     `
 })
-export class GoogleMapsComponent implements OnChanges {
+export class GoogleMapsComponent implements OnInit {
 
     myMapOptions: Object = {};
 
@@ -68,7 +68,7 @@ export class GoogleMapsComponent implements OnChanges {
         }
     ];
 
-    ngOnChanges(): any {
+    ngOnInit(): any {
         this.mapOptionsDefaults = this.myMapOptions;
     }
 }

@@ -72,6 +72,6 @@ export class ModalsComponent {
     }
 
     showLoadingModal() {
-        this._loadingModal.open();
+        this.open(this._loadingModal);
     }
 }

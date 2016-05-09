@@ -9,7 +9,7 @@ export class CurriculumVitaeService {
 	constructor(private _httpService: HttpService) { }
 
 	getData() {
-		return this._httpService.httpGet(this.urlData));
+		return this._httpService.httpGet(this.urlData);
 	}
 
 

@@ -18,35 +18,6 @@ export class BackgroundDirective implements OnInit {
 		let randomImage = images[num];
 		let	backgroundImage = urlBase + randomImage;
 
-		//preloadBackground(backgroundImage).then(function() {
 		this._renderer.setElementStyle(this._elRef.nativeElement, 'background-image', 'url("' + backgroundImage + '")');
-			
-			//element.fadeIn();
-		//});
-	}
+
 }
-
-/*TODO:  Translate to Angular 2
-function preloadBackground(url: string) {
-	var deffered = $q.defer(),
-		image = new Image();
-
-	image.src = url;
-
-	if (image.complete) {
-
-		deffered.resolve();
-
-	} else {
-
-		image.addEventListener('load', function() {
-			deffered.resolve();
-		});
-
-		image.addEventListener('error', function() {
-			deffered.reject();
-		});
-	}
-
-	return deffered.promise;
-}*/

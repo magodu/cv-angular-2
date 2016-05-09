@@ -12,7 +12,6 @@ import {
 	ANGULAR2_GOOGLE_MAPS_DIRECTIVES
 } from 'angular2-google-maps/core';
 
-declare var jQuery: JQueryStatic;
 
 //noinspection TypeScriptValidateTypes
 bootstrap(AppComponent, [

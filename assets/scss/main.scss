@@ -162,6 +162,7 @@ body {
     color: #000;
     font-size: 14px;
     font-family: 'Open Sans', Agenda-Light, Agenda\ Light, Agenda, Arial\ Narrow, sans-serif;
+    padding-right: 0 !important;
 }
 
 h1 {
@@ -706,6 +707,11 @@ MAIN NAVIGATION
     padding: 0px!important;
     min-height: 0px !important;
 }
+
+/*.modal-body {
+    position: inherit;
+    padding: 0;
+}*/
 
 .modal-content {
     background-color: #ffffff;

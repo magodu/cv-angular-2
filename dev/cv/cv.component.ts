@@ -1,24 +1,27 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit, AfterViewInit, ViewChild} from 'angular2/core';
 import {HttpService} from "../shared/http.service";
 import {Http, Response} from "angular2/http";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/Rx';
 import {Headers} from "angular2/http";
-import {CurriculumVitaeService} from './cv.service';
 import {GoogleMapsComponent} from './google-maps.component';
 import {AnimatedPhoneComponent} from './animated-phone.component';
 import {ParallaxDirective} from './parallax.directive';
 import {BackgroundDirective} from './background.directive';
+import {CurriculumVitaeService} from './cv.service';
+import {ModalsComponent} from '../shared/modals.component';
 
 
 @Component({
 	selector: 'my-cv',
 	templateUrl: 'templates/cv/cv.tpl.html',
 	providers: [CurriculumVitaeService],
-	directives: [ParallaxDirective, BackgroundDirective, GoogleMapsComponent, AnimatedPhoneComponent]
+	directives: [ParallaxDirective, BackgroundDirective, GoogleMapsComponent, AnimatedPhoneComponent, ModalsComponent]
 })
 
-export class CVComponent implements OnInit {
+export class CVComponent implements OnInit, AfterViewInit {
+
+	@ViewChild(ModalsComponent) _modals: ModalsComponent;
 
 	mapOptions: Object = {
 		zoom: 4,
@@ -27,8 +30,8 @@ export class CVComponent implements OnInit {
 	};
 	response: string;
 	cvData: Object;
-	currentYear: Date;
-	
+	currentYear: number;
+
 	public phoneDivOpened: boolean = false;
 	public phoneData: string[] = [];
 
@@ -39,21 +42,42 @@ export class CVComponent implements OnInit {
 		this.currentYear = currentDate.getFullYear();
 	}
 
+	openAlertModal(size?: string) {
+		let modalData: Object {
+			type: 'danger',
+			title: 'Error',
+			bodyText: 'Error loading data has occurred. Try to reload the site.'
+		};
+		this._modals.showAlertModal(modalData);
+	}
+
 	getData() {
+		this._modals.showLoadingModal();
+		
 		this._curriculumVitaeService.getData().subscribe(
-			data => { this.cvData = data.data },       // the first argument is a function which runs on success
-			err => console.error(err),                 // the second argument is a function which runs on error
-			() => console.log('done loading data')     // the third argument is a function which runs on completion
+			data => {   // the first argument is a function which runs on success
+						this.cvData = data.data;
+						this._modals.hideLoadingModal();
+			},       
+			err => {    // the second argument is a function which runs on error
+						console.error(err);
+						this._modals.hideLoadingModal();
+						this.openAlertModal();
+
+			},                  
+			() => console.log('loading data: done')     // the third argument is a function which runs on completion
 		);
 	}
 
 	changeLanguage(language: string) {
 		// Angular 2 functionality not yet released
-		console.log('Change to ' + language);
+		console.log('Change language to ' + language);
 	}
 
-	ngOnInit(): any {
+	ngAfterViewInit() {
         this.getData();
+    }
+    ngOnInit(): any {
         this.getCurrentYear();
     }
 

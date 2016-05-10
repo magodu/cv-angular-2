@@ -1,3 +1,4 @@
+import {enableProdMode} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
 import {ROUTER_PROVIDERS} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
@@ -12,6 +13,8 @@ import {
 	ANGULAR2_GOOGLE_MAPS_DIRECTIVES
 } from 'angular2-google-maps/core';
 
+
+enableProdMode();
 
 //noinspection TypeScriptValidateTypes
 bootstrap(AppComponent, [

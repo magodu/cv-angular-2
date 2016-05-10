@@ -12,11 +12,16 @@
 
 <!-- Alert Modal -->
 <modal [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" #alertModal>
-    <div class="modal-body-alert" [ngClass]="'alert-' + (alertModalDefault.type || 'danger')">
+    <modal-header [show-close]="false">
+    	<button *ngIf="alertModalDefault.type !== 'danger'" type="button" class="close xButtonClose" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">
+	        <img src="images/icoCloseModalWindow.png" />
+	    </button>
+    </modal-header>
+	<div class="modal-body-alert" [ngClass]="'alert-' + (alertModalDefault.type || 'danger')">
         <div class="alert-content-img">
-            <img src="images/icoError.png" *ngIf="alertModalDefault.type == 'danger'">
-            <img src="images/icoOK.png" *ngIf="alertModalDefault.type == 'success'">
-            <img src="images/icoInfo.png" *ngIf="alertModalDefault.type == 'info'">
+            <img src="images/icoError.png" *ngIf="alertModalDefault.type === 'danger'">
+            <img src="images/icoOK.png" *ngIf="alertModalDefault.type === 'success'">
+            <img src="images/icoInfo.png" *ngIf="alertModalDefault.type === 'info'">
         </div>
         <div class="alert-content-txt">
             <div>

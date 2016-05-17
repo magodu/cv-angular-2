@@ -1,6 +1,6 @@
 # Description
 
-This project is a full responsive Curriculum vitae online coded in Angular 2.
+This project is a full responsive Curriculum vitae online coded in Angular 2 RC1.
 
 
 This repository acts as a very simple Angular 2 Beta Boilerplate with which you can get started developing Angular 2 immediately.
@@ -16,3 +16,11 @@ npm install
 ```
 npm start
 ```
+
+# Angular 2 Beta / RC Comparison
+
+A little Angular 2 showing the biggest code-related changes from Beta to RC status.
+
+* Packaging / Imports (@angular instead of angular2)
+* ngFor (let instead of #)
+* New Router

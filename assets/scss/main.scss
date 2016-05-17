@@ -208,18 +208,49 @@ hr {
 }
 
 
-/* NG-CLOAK
-  Allow angular.js to be loaded in body, hiding cloaked elements until
-  templates compile.  The !important is important given that there may be
-  other selectors that are more specific or come later and might alter display.
- */
+/* Page structure
+*****************************************************************/
 
-[ng:cloak],
-[ng-cloak],
-[data-ng-cloak],
-[x-ng-cloak],
-.ng-cloak,
-.x-ng-cloak {
+#wrapper,
+.pagewidth,
+#header,
+#main-nav,
+#body,
+#footerwrap,
+#footer {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#footerwrap {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+}
+
+header#header {
+    height: 100vh;
+}
+
+#wrapper {
+    height: 100%;
+}
+
+#branding {
+    width: 100%;
+    background: #fff;
+
+    h1 {
+        width: 940px;
+        padding: 10px 15px;
+        margin: 0 auto;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: bold;
+    }
+}
+
+.visible-mobile {
     display: none !important;
 }
 
@@ -271,6 +302,7 @@ header#header {
 }
 
 
+
 /* Nav
 *****************************************************************/
 
@@ -318,7 +350,6 @@ nav.next-prev {
 #footer a {
     text-decoration: none;
 }
-
 
 
 /* Parallax
@@ -461,6 +492,7 @@ HEADER
     }
 }
 
+
 /* 
 MAIN NAVIGATION
 ================================================ */
@@ -557,7 +589,6 @@ MAIN NAVIGATION
     cursor: pointer;
     color: #FFF;
 }
-
 
 
 /* current link */
@@ -795,7 +826,6 @@ MAIN NAVIGATION
 }
 
 
-
 /* Experience section */
 
 .photograph-image {
@@ -873,6 +903,7 @@ div #startTitle {
     font-size: 20px;
     line-height: normal;
 }
+
 
 
 /* Skills section */

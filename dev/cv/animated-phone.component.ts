@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
 	selector: 'animated-phone',
@@ -8,7 +8,7 @@ import {Component, Input} from 'angular2/core';
 		        <div class="front"></div>
 		        <div class="back">
 		        	<div id="phone-wrapper">
-		        		<div class="phone-number" *ngFor="#phone of phoneData">{{phone}}</div>
+		        		<div class="phone-number" *ngFor="let phone of phoneData">{{phone}}</div>
 		        	</div>
 		        </div>
 	        </div>

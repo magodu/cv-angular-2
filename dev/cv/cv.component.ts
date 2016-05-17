@@ -1,16 +1,14 @@
-import {Component, OnInit, AfterViewInit, ViewChild} from 'angular2/core';
-import {HttpService} from "../shared/http.service";
-import {Http, Response} from "angular2/http";
-import {Observable} from "rxjs/Observable";
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Http, Response, Headers } from "@angular/http";
+import { Observable } from "rxjs/Observable";
 import 'rxjs/Rx';
-import {Headers} from "angular2/http";
-import {GoogleMapsComponent} from './google-maps.component';
-import {AnimatedPhoneComponent} from './animated-phone.component';
-import {ParallaxDirective} from './parallax.directive';
-import {BackgroundDirective} from './background.directive';
-import {CurriculumVitaeService} from './cv.service';
-import {ModalsComponent} from '../shared/modals.component';
-
+import { HttpService } from "../shared/http.service";
+import { GoogleMapsComponent } from './google-maps.component';
+import { AnimatedPhoneComponent } from './animated-phone.component';
+import { ParallaxDirective } from './parallax.directive';
+import { BackgroundDirective } from './background.directive';
+import { CurriculumVitaeService } from './cv.service';
+import { ModalsComponent } from '../shared/modals.component';
 
 @Component({
 	selector: 'my-cv',

@@ -1,12 +1,5 @@
-import {Component, OnInit, provide} from 'angular2/core';
-import {
-    MapsAPILoader,
-    NoOpMapsAPILoader,
-    MouseEvent,
-    ANGULAR2_GOOGLE_MAPS_PROVIDERS,
-    ANGULAR2_GOOGLE_MAPS_DIRECTIVES
-} from 'angular2-google-maps/core';
-
+import {Component, OnInit, provide} from '@angular/core';
+import {ANGULAR2_GOOGLE_MAPS_DIRECTIVES} from 'angular2-google-maps/core';
 
 @Component({
     selector: 'google-maps',
@@ -25,7 +18,7 @@ import {
             [zoom]="mapOptionsDefaults.zoom"
             [disableDefaultUI]="false">
         
-            <sebm-google-map-marker *ngFor="#m of markers; #i = index"
+            <sebm-google-map-marker *ngFor="let m of markers; let i = index"
                 [latitude]="m.lat"
                 [longitude]="m.lng"
                 [label]="m.label"

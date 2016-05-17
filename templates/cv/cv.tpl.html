@@ -86,7 +86,7 @@
                             </figure>
                         </div>
                     </header>
-                    <article *ngFor="#experience of cvData?.experience; #i = index">
+                    <article *ngFor="let experience of cvData?.experience; let i = index">
                         <div class="col-md-10 col-sm-10 col-xs-12">
                             <div class="experienceSection">
                                 <div class="col-md-12 hidden-mobile">
@@ -116,7 +116,7 @@
                                     <div class="place">{{experience.place}}</div>
                                 </div>
                                 <div class="col-md-12 description">
-                                    <div *ngFor="#description of experience.description">{{description.text}}</div>
+                                    <div *ngFor="let description of experience.description">{{description.text}}</div>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                 </header>
                 <div class="skills-section">
                     <div class="skills-wrapper">
-                        <article *ngFor="#skill of cvData?.skills">
+                        <article *ngFor="let skill of cvData?.skills">
                             <div class="col-md-12 col-xs-12">
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-excellent" [ngClass]="{'progress-bar-excellent': skill.level >= 85, 'progress-bar-very-good': skill.level >= 70 && skill.level < 85, 'progress-bar-good': skill.level >= 60 && skill.level < 70, 'progress-bar-ok': skill.level >= 50 && skill.level < 60, 'progress-bar-bad': skill.level >= 0 && skill.level < 50}" role="progressbar" aria-valuemin="0" aria-valuemax="100">
@@ -152,7 +152,7 @@
                     <h1 class="section-title">Training</h1>
                 </header>
                 <h2 class="courses">Education</h2>
-                <article  *ngFor="#form of cvData?.training">
+                <article  *ngFor="let form of cvData?.training">
                     <div class="col-md-10 col-sm-10 col-xs-12">
                         <div class="training-section">
                             <div class="col-md-12 hidden-mobile">
@@ -174,7 +174,7 @@
                 <h2 class="courses">Courses</h2>
                 <div class="courses">
                     <ul class="courses">
-                        <li *ngFor="#course of cvData?.complementaryTraining">
+                        <li *ngFor="let course of cvData?.complementaryTraining">
                             <img src="images/{{course.image}}">
                             <h3>{{course.title}}</h3>
                             <p>{{course.description}}</p>
@@ -191,7 +191,7 @@
                 </header>
                 <div class="languages-section">
                     <div class="languages-wrapper">
-                        <article *ngFor="#language of cvData?.languages">
+                        <article *ngFor="let language of cvData?.languages">
                             <div class="col-md-12 col-xs-12">
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-excellent" [ngClass]="{'progress-bar-excellent': language.level >= 85, 'progress-bar-very-good': language.level >= 70 && language.level < 85, 'progress-bar-good': language.level >= 60 && language.level < 70, 'progress-bar-ok': language.level >= 50 && language.level < 60, 'progress-bar-bad': language.level >= 0 && language.level < 50}" role="progressbar" aria-valuemin="0" aria-valuemax="100">
@@ -219,7 +219,7 @@
                 <div class="col-md-12 col-xs-12 container-contact2">
                     <div class="social-widgets">
                         <ul class="social-links horizontal">
-                            <li class="social-link-item" *ngFor="#item of cvData?.social" [ngSwitch]="item.name">
+                            <li class="social-link-item" *ngFor="let item of cvData?.social" [ngSwitch]="item.name">
                                 <a  *ngSwitchWhen="'cell_phone'" title="{{item.description}}" target="'_blank'" class="phone-link" (click)="showPhones()">
                                     <img id="{{item.name}}" src="images/{{item.image}}" width="50" height="50" alt="{{item.description}}" />
                                 </a>

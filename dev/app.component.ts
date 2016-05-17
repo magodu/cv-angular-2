@@ -1,17 +1,19 @@
-import {Component} from 'angular2/core';
-import { ROUTER_DIRECTIVES, RouteConfig } from 'angular2/router';
+import { Component } from '@angular/core';
+import { Routes, ROUTER_DIRECTIVES } from "@angular/router";
 import {CVComponent} from "./cv/cv.component";
 
 @Component({
     selector: 'my-app',
     template: `
-    <router-outlet></router-outlet>
+        <router-outlet [routerLink]="['']"></router-outlet>
     `,
     directives: [ROUTER_DIRECTIVES]
 })
-
-@RouteConfig([
-		{ path: '/', name: 'CurriculumVitae', component: CVComponent, useAsDefault: true }
+@Routes([
+    { path: '', component: CVComponent }
 ])
 
-export class AppComponent { }
+
+export class AppComponent {
+    
+}

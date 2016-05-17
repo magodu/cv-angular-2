@@ -1,6 +1,5 @@
-import {Directive, OnInit, AfterViewChecked} from 'angular2/core';
-import {ElementRef} from 'angular2/core';
-import {Renderer} from 'angular2/core';
+import {Directive, OnInit, AfterViewChecked} from '@angular/core';
+import {ElementRef, Renderer} from '@angular/core';
 
 @Directive({
 	selector: '[parallax]',
@@ -24,7 +23,7 @@ export class ParallaxDirective implements OnInit, AfterViewChecked {
 		const _windowWidth = ParallaxDirective.windowWidth;
 		const _MOBILE_WIDTH = ParallaxDirective.MOBILE_WIDTH;
 
-		/* Main Menu */
+		// Main Menu
 		jQuery('body #menu-icon').click(function(event) {
 			event.preventDefault();
 			jQuery('#main-nav').fadeToggle();
@@ -33,7 +32,7 @@ export class ParallaxDirective implements OnInit, AfterViewChecked {
 		});
 
 
-		/* Show/hide dot lav labels on hover */
+		// Show/hide dot lav labels on hover
 		jQuery('nav#primary a').hover(
 			function() {
 				jQuery(this).prev('h1').show();
@@ -43,7 +42,7 @@ export class ParallaxDirective implements OnInit, AfterViewChecked {
 			}
 		);
 
-		/* Next/prev and primary nav btn click handlers */
+		// Next/prev and primary nav btn click handlers
 		jQuery('a.main').click(function() {
 			hideMenu(_windowWidth, _MOBILE_WIDTH);
 			jQuery('html, body').animate({
@@ -101,7 +100,7 @@ export class ParallaxDirective implements OnInit, AfterViewChecked {
 		jQuery(window).scroll(activateFixedHeader(headerHeight));
 	}
 
-	/* Set navigation dots to an active state as the user scrolls */
+	// Set navigation dots to an active state as the user scrolls
 	private redrawDotNav() {
 		const section1Top = 0;
 		// The top of each section is offset by half the distance to the previous section.

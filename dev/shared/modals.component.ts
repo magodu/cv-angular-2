@@ -1,4 +1,4 @@
-import { Component, ViewChild, EventEmitter} from 'angular2/core';
+import { Component, ViewChild, EventEmitter} from '@angular/core';
 import { MODAL_DIRECTIVES, ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 @Component({

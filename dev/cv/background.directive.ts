@@ -1,11 +1,9 @@
-import {Directive, OnInit} from 'angular2/core';
-import {ElementRef} from 'angular2/core';
-import {Renderer} from 'angular2/core';
+import {Directive, OnInit, ElementRef, Renderer} from '@angular/core';
+
 
 @Directive({
 	selector: '[background]'
 })
-
 
 export class BackgroundDirective implements OnInit {
 

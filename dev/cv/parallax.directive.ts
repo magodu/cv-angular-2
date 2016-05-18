@@ -1,4 +1,4 @@
-import {Directive, OnInit, AfterViewChecked} from '@angular/core';
+import {Directive, OnInit, AfterContentChecked} from '@angular/core';
 import {ElementRef, Renderer} from '@angular/core';
 
 @Directive({
@@ -7,7 +7,7 @@ import {ElementRef, Renderer} from '@angular/core';
 	host: {}
 })
 
-export class ParallaxDirective implements OnInit, AfterViewChecked {
+export class ParallaxDirective implements OnInit, AfterContentChecked {
 	headerHeight: number = 0;
 
 	constructor(private _elRef: ElementRef, private _renderer: Renderer) {
@@ -87,12 +87,14 @@ export class ParallaxDirective implements OnInit, AfterViewChecked {
 		});
 	}
 
-	ngAfterViewChecked() {
+	ngAfterContentChecked() {
+		console.log('Entro');
 		this.init();	
     }
 
 	private initFixedHeader() {
 		let headerHeight = jQuery('#header hgroup').outerHeight() - jQuery('#nav-bar').outerHeight();
+
 		if (jQuery('body').hasClass('ie')) {
 			jQuery('html, body').addClass('iefix');
 		}
@@ -138,6 +140,12 @@ export class ParallaxDirective implements OnInit, AfterViewChecked {
 		this.redrawDotNav();
 	}
 
+	private init() {
+		this.setSectionAbsolutePositions();
+		this.redrawDotNav();
+		this.initFixedHeader();
+	}
+
 	private setSectionAbsolutePositions() {
 		const sections = ['experience', 'skills', 'training', 'languages', 'contact'];
 		const MARGIN_BOTTOM = 100;
@@ -154,12 +162,6 @@ export class ParallaxDirective implements OnInit, AfterViewChecked {
 		}
 
 		jQuery('body').css('height', totalHeight + jQuery('#header').outerHeight());
-	}
-
-	private init() {
-		this.setSectionAbsolutePositions();
-		this.redrawDotNav();
-		this.initFixedHeader();
 	}
 
 }
@@ -215,10 +217,12 @@ function photographHandler(scroll: boolean) {
 	}
 
 	if ((_document.scrollTop() >= startPhotograph) && (_document.scrollTop() <= endPhotograph)) {
-		_photograph.fadeIn();
+		jQuery('#photograph img').addClass('fade-in');
+		jQuery('#photograph img').removeClass('fade-out');
 		_photograph.css('visibility', 'visible');
 	} else {
-		_photograph.fadeOut();
+		jQuery('#photograph img').addClass('fade-out');
+		jQuery('#photograph img').removeClass('fade-in');
 		_photograph.css('visibility', 'hidden');
 	}
 }

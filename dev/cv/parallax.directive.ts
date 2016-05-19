@@ -88,7 +88,6 @@ export class ParallaxDirective implements OnInit, AfterContentChecked {
 	}
 
 	ngAfterContentChecked() {
-		console.log('Entro');
 		this.init();	
     }
 
@@ -113,26 +112,26 @@ export class ParallaxDirective implements OnInit, AfterContentChecked {
 		const section6Top = jQuery('#contact').offset().top;
 
 		jQuery('nav#primary a').removeClass('active');
-		jQuery('#main-nav li').removeClass('current_page_item');
+		jQuery('#main-nav li a').removeClass('current-page-item');
 
 		if (jQuery(document).scrollTop() >= section1Top && jQuery(document).scrollTop() <= section1Top) {
 			jQuery('nav#primary a.main').addClass('active');
-			jQuery('#main-nav li.menu-item-main').addClass('current_page_item');
+			jQuery('#main-nav li.menu-item-main a').addClass('current-page-item');
 		} else if (jQuery(document).scrollTop() >= section2Top && jQuery(document).scrollTop() < section3Top) {
 			jQuery('nav#primary a.experience').addClass('active');
-			jQuery('#main-nav li.menu-item-experience').addClass('current_page_item');
+			jQuery('#main-nav li.menu-item-experience a').addClass('current-page-item');
 		} else if (jQuery(document).scrollTop() >= section3Top && jQuery(document).scrollTop() < section4Top) {
 			jQuery('nav#primary a.skills').addClass('active');
-			jQuery('#main-nav li.menu-item-skills').addClass('current_page_item');
+			jQuery('#main-nav li.menu-item-skills a').addClass('current-page-item');
 		} else if (jQuery(document).scrollTop() >= section4Top && jQuery(document).scrollTop() < section5Top) {
 			jQuery('nav#primary a.training').addClass('active');
-			jQuery('#main-nav li.menu-item-training').addClass('current_page_item');
+			jQuery('#main-nav li.menu-item-training a').addClass('current-page-item');
 		} else if (jQuery(document).scrollTop() >= section5Top && jQuery(document).scrollTop() < section6Top) {
 			jQuery('nav#primary a.languages').addClass('active');
-			jQuery('#main-nav li.menu-item-languages').addClass('current_page_item');
+			jQuery('#main-nav li.menu-item-languages a').addClass('current-page-item');
 		} else if (jQuery(document).scrollTop() >= section6Top) {
 			jQuery('nav#primary a.contact').addClass('active');
-			jQuery('#main-nav li.menu-item-contact').addClass('current_page_item');
+			jQuery('#main-nav li.menu-item-contact a').addClass('current-page-item');
 		}
 	}
 

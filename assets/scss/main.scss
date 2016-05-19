@@ -590,23 +590,16 @@ MAIN NAVIGATION
     color: #FFF;
 }
 
-
 /* current link */
-#main-nav.current_page_item a,
-#main-nav.current-menu-item a {
-    color: #fff799;
-}
-
-#main-nav.current_page_item a:hover,
-#main-nav.current-menu-item a:hover {
+#main-nav a.current-page-item {
     color: #fff799;
 }
 
 
 /* sub-levels link */
 #main-nav ul a,
-#main-nav .current_page_item ul a,
-#main-nav ul .current_page_item a,
+#main-nav .current-page-item ul a,
+#main-nav ul .current-page-item a,
 #main-nav .current-menu-item ul a,
 #main-nav ul .current-menu-item a {
     font: normal .85em/1.3em "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -627,8 +620,8 @@ MAIN NAVIGATION
 
 /* sub-levels link :hover */
 #main-nav ul a:hover,
-#main-nav .current_page_item ul a:hover,
-#main-nav ul .current_page_item a:hover,
+#main-nav .current-page-item ul a:hover,
+#main-nav ul .current-page-item a:hover,
 #main-nav .current-menu-item ul a:hover,
 #main-nav ul .current-menu-item a:hover {
     color: #000;

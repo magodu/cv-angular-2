@@ -218,11 +218,9 @@ function photographHandler(scroll: boolean) {
 	if ((_document.scrollTop() >= startPhotograph) && (_document.scrollTop() <= endPhotograph)) {
 		jQuery('#photograph img').addClass('fade-in');
 		jQuery('#photograph img').removeClass('fade-out');
-		_photograph.css('visibility', 'visible');
 	} else {
 		jQuery('#photograph img').addClass('fade-out');
 		jQuery('#photograph img').removeClass('fade-in');
-		_photograph.css('visibility', 'hidden');
 	}
 }
 

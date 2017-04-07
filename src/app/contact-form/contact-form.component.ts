@@ -1,7 +1,4 @@
-//// <reference path="../../../node_modules/@types/gapi/index.d.ts" />
-
 import { Component, OnInit} from '@angular/core';
-//import 'rxjs/add/operator/toPromise';
 import { Subscription } from 'rxjs/Subscription';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -14,11 +11,6 @@ import {
 import { Message } from './message';
 import { ResumeService } from '../resume-cv/resume.service';
 import { ContactFormService } from './contact-form.service';
-
-
-
-//declare var gapi: any;
-
 
 
 @Component({
@@ -34,13 +26,6 @@ export class ContactFormComponent implements OnInit {
     isLoading: boolean = false;
     messageSent: boolean = false;
     messageSentError: boolean = false;
-
-
-    //private clientId = '89071364240-5n1dh927g2mda84dv674ve3keqhaj2ff.apps.googleusercontent.com';
-    //private apiKey = 'AIzaSyD-xSxeguqtWK4kNUrDTTU0gsNK0iXIYK4';
-    //private clientId = '726362529687-8m2tmovrp07ght96j9h46jm5m891i8ue.apps.googleusercontent.com';
-    //private apiKey = 'AIzaSyCsK7TT6qM0JiQCWre8yo-mJA88pWZ9zD8';
-    //private scopes = 'https://www.googleapis.com/auth/gmail.send';
 
 
     constructor(private _resumeService: ResumeService,
@@ -99,18 +84,6 @@ export class ContactFormComponent implements OnInit {
         this.toggleDisableForm(true);
         this.emailData = this.contactForm.value;
 
-        /*if (!(gapi && gapi.client && gapi.auth)) {
-            this.getGmailAuth();
-        } else {
-            this.sendMessage(
-                {
-                'To': 'magodu.pral@gmail.com',
-                'Subject': 'Mensaje desde curriculum online'
-                },
-                this.composeMessage(),
-                this.sendEmailResult
-            );
-        }*/
         let data: Object = {
             name: this.emailData.name,
             message:  this.emailData.message.replace(/\n/g, '<br>'),
@@ -131,94 +104,4 @@ export class ContactFormComponent implements OnInit {
         );
     }
 
-
-    /*sendMessage(headers_obj, message, callback) {
-        let email = '';
-
-        for (let header in headers_obj) {
-            email += header += ': ' + headers_obj[header] + '\r\n';
-        }
-
-        email += "\r\n" + message;
-
-        let sendRequest = gapi.client.gmail.users.messages.send({
-            'userId': 'me',
-            'resource': {
-                'raw': window.btoa(email).replace(/\+/g, '-').replace(/\//g, '_')
-                       
-            }
-        });
-        console.log('Sending Message...');
-        return sendRequest.execute(callback.bind(this));
-    };
-
-
-    composeMessage() {
-        return 'Mensaje de: ' + this.emailData.name + '\nEmail: ' + this.emailData.email + ' \n\nMensaje:\n\n ' +  this.emailData.message;
-    }
-
-    handleAuthResult(authResult) {
-        var _self = this;
-
-        if (authResult && !authResult.error) {
-
-            gapi.client.load('gmail', 'v1').then(function() {
-                console.log('Gmail loaded');
-                _self.sendMessage(
-                    {
-                    'To': 'magodu.pral@gmail.com',
-                    'Subject': 'Mensaje desde curriculum online'
-                    },
-                    _self.composeMessage(),
-                    _self.sendEmailResult
-                );  
-            });
-
-        } else {
-            // Error
-            this.zone.run(() => {
-                this.isLoading = false;
-                this.messageSentError = true;
-            });
-            this.initForm();
-            gapi.auth.authorize({
-                client_id: this.clientId,
-                scope: this.scopes,
-                immediate: false
-            }, this.handleAuthResult.bind(this));
-        }
-    };
-
-    checkAuth(gapi) {
-        gapi.auth.authorize({
-            client_id: this.clientId,
-            scope: this.scopes,
-            immediate: true
-        }, this.handleAuthResult.bind(this));
-    };
-
-    handleClientLoad(gapi) {
-        gapi.client.setApiKey(this.apiKey);
-    };
-
-
-    loadClient(): Promise<any> {
-        return new Promise(resolve => {
-            gapi.load('client', resolve);
-        });
-    };
-
-
-    getGmailAuth() {
-        var _self = this;
-
-        this.loadClient().then(function() {
-            console.log('Google Client loaded');
-            _self.handleClientLoad(gapi);
-            _self.checkAuth(gapi);
-        });
-    };*/
-
-    
-    
 }

@@ -1,0 +1,68 @@
+<!-- Regular Modal (example) -->
+<!-- <modal [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" (onClose)="onClose()" (onDismiss)="onDismiss()" (onOpen)="onOpen()" #modal>
+    <modal-header [show-close]="false">
+        <h4 class="modal-title">Modal Title</h4>
+        <button type="button" class="close xButtonClose" data-dismiss="modal" aria-hidden="true" (click)="dismissModal(modal)">
+            <img src="assets/images/icoCloseModalWindow.png" />
+        </button>
+    </modal-header>
+    <modal-body>
+        <div class="modal-body">
+            {{modalDefault.bodyText}}
+            <ul>
+                <li><a (click)="selectedItem = 'item1'">item 1</a></li>
+                <li><a (click)="selectedItem = 'item2'">item 2</a></li>
+                <li><a (click)="selectedItem = 'item3'">item 3</a></li>
+            </ul>
+            Selected: <b>{{selectedItem }}</b>
+        </div>
+    </modal-body>
+    <modal-footer [show-default-buttons]="true"></modal-footer>
+</modal> -->
+
+
+<!-- Contact Modal -->
+<modal [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" (onClose)="resetForm()" (onDismiss)="resetForm()" (onOpen)="onOpen()" #contactModal>
+    <modal-header [show-close]="false">
+        <button type="button" class="close xButtonClose" data-dismiss="modal" aria-hidden="true" (click)="dismissModal(contactModal)">
+            <img src="assets/images/icoCloseModalWindow.png" />
+        </button>
+    </modal-header>
+    <modal-body>
+        <contact-form></contact-form>
+    </modal-body>
+</modal>
+
+<!-- Alert Modal -->
+<modal [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" #alertModal>
+    <modal-header [show-close]="false">
+        <button *ngIf="alertModalDefault.type !== 'danger'" type="button" class="close xButtonClose" data-dismiss="modal" aria-hidden="true" (click)="dismissModal()">
+            <img src="assets/images/icoCloseModalWindow.png" />
+        </button>
+    </modal-header>
+    <div class="modal-body-alert" [ngClass]="'alert-' + (alertModalDefault.type || 'danger')">
+        <div class="alert-content-img">
+            <img src="assets/images/icoError.png" *ngIf="alertModalDefault.type === 'danger'">
+            <img src="assets/images/icoOK.png" *ngIf="alertModalDefault.type === 'success'">
+            <img src="assets/images/icoInfo.png" *ngIf="alertModalDefault.type === 'info'">
+        </div>
+        <div class="alert-content-txt">
+            <div>
+                <span class="alertNotificationTitle" [ngClass]="'alert-' + (alertModalDefault.type || 'danger')">{{alertModalDefault.title}}</span>
+            </div>
+            <div class="alertNotificationMsg">
+                <span>{{alertModalDefault.bodyText}}</span>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<!-- Loading Modal-->
+<modal [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" #loadingModal>
+    <modal-body>
+        <div class="loadingContent" align="center" style="height: 100%;">
+            <img alt="Loading  Content" src="assets/images/loading.gif" />
+            <p>{{'loading' | translate}}</p>
+        </div>
+    </modal-body>
+</modal>

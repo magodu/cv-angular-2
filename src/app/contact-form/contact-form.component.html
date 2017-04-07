@@ -1,0 +1,42 @@
+<div class="form-container">  
+    <div  *ngIf="!messageSent && !messageSentError">
+        <form id="contact-form" class="contact-form" [formGroup]="contactForm">
+            <h3>{{'contactForm.title' | translate}}</h3>
+            <h4>{{'contactForm.subtitle' | translate}}</h4>
+            <fieldset>
+                <input placeholder="{{'contactForm.placeholders.name' | translate}}" type="text" tabindex="1" autofocus formControlName="name" [ngClass]="{'error': contactForm.controls['name'].invalid && !contactForm.controls['name'].pristine}">
+            </fieldset>
+            <fieldset>
+                <input placeholder="{{'contactForm.placeholders.email' | translate}}" type="text" tabindex="2" formControlName="email" [ngClass]="{'error': contactForm.controls['email'].invalid && !contactForm.controls['email'].pristine}">
+            </fieldset>
+            <fieldset>
+                <textarea placeholder="{{'contactForm.placeholders.message' | translate}}" tabindex="3" formControlName="message" [ngClass]="{'error': contactForm.controls['message'].invalid && !contactForm.controls['message'].pristine}"></textarea>
+            </fieldset>
+            <fieldset>
+                <button name="submit" type="submit" id="contact-submit" [disabled]="!contactForm.valid || isLoading" (click)="sendEmail()" [innerHTML]="isLoading ? ('contactForm.button.sending' | translate) : ('contactForm.button.submit' | translate)"></button>
+            </fieldset>
+        </form>
+    </div>
+    <div class="send-email" *ngIf="messageSent && !messageSentError">
+        <div class="image">
+            <img id="sendEmailConfirmImg" src="assets/images/emailSent.gif" />
+        </div>
+        <div class="confirm-message">
+            <p>{{'contactForm.confirm.title' | translate}}</p>
+            <span>{{'contactForm.confirm.subtitle' | translate}}</span>
+        </div>
+    </div>
+    <div class="send-email" *ngIf="messageSentError">
+        <div class="error-message">
+            <p>{{'contactForm.error.title' | translate}}</p>
+        </div>
+        <div>
+            <span>{{'contactForm.error.subtitle' | translate}}</span><br />
+            <span>{{'contactForm.error.emailMe' | translate}}</span><br />
+            <span class="email"><b>magodu.pral@gmail.com</b></span>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,88 @@
+
+
+.modal-alert-close {
+    z-index: 1900;
+    top: -30px;
+    left: 99.4%;
+    position: relative
+}
+
+.xButtonClose {
+    position: absolute;
+    margin: 0;
+    top: -15px;
+    right: -15px;
+    opacity: .9;
+    z-index: 10;
+}
+
+.mynewclassclose:hover {
+    opacity: 1
+}
+
+
+
+.modal-body-alert {
+    padding: 5px!important;
+    min-height: 50px
+}
+
+.alert-content-txt,
+.content-txt {
+    min-height: 55px
+}
+
+.loadingContent {
+    font-size: 12px;
+    vertical-align: baseline;
+    margin: 10px 20px
+}
+
+.loadingContent>p {
+    margin: .5em 0 0;
+    font-weight: 700;
+    font-size: 1.5em
+}
+
+.alert-content-img,
+.content-img {
+    float: left;
+    margin-right: 15px
+}
+
+.alertNotificationTitle {
+    font-weight: 700;
+    font-size: 14px;
+    vertical-align: middle
+}
+
+.alertNotificationMsg {
+    color: #333;
+    text-align: left
+}
+
+.alert-success {
+    background-color: #f7fff9
+}
+
+.alert-error {
+    background-color: #fff7f7
+}
+
+.alert-info {
+    color: #31708f;
+    background-color: #d9edf7
+}
+
+.content-txt {
+    display: table;
+    height: 55px;
+    overflow: hidden
+}
+
+.notificationMsg {
+    color: #333;
+    text-align: left;
+    display: table-cell;
+    vertical-align: middle
+}

@@ -1,0 +1,69 @@
+<!-- 
+<div bsModal #modal="bs-modal" [config]="modalConfig" (onHidden)="onHidden($event)" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">{{modalDefault.title}}</h4>
+                <button type="button" class="close xButtonClose" data-dismiss="modal" aria-hidden="true" (click)="closeModal(modal)">
+                    <img src="assets/images/icoCloseModalWindow.png" />
+                </button>
+            </div>
+            <div class="modal-body">
+                {{modalDefault.bodyText}}
+                <ul>
+                    <li><a (click)="selectedItem = 'item1'">item 1</a></li>
+                    <li><a (click)="selectedItem = 'item2'">item 2</a></li>
+                    <li><a (click)="selectedItem = 'item3'">item 3</a></li>
+                </ul>
+                Selected: <b>{{selectedItem }}</b>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="closeModal(modal)">Close</button>
+                <button type="button" class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div bsModal #alertModal="bs-modal" [config]="modalConfig" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button *ngIf="alertModalDefault.type !== 'danger'" type="button" class="close xButtonClose" data-dismiss="modal" aria-hidden="true" (click)="closeModal(alertModal)">
+                    <img src="assets/images/icoCloseModalWindow.png" />
+                </button>
+            </div>
+            <div class="modal-body-alert" [ngClass]="'alert-' + (alertModalDefault.type || 'danger')">
+                <div class="alert-content-img">
+                    <img src="assets/images/icoError.png" *ngIf="alertModalDefault.type === 'danger'">
+                    <img src="assets/images/icoOK.png" *ngIf="alertModalDefault.type === 'success'">
+                    <img src="assets/images/icoInfo.png" *ngIf="alertModalDefault.type === 'info'">
+                </div>
+                <div class="alert-content-txt">
+                    <div>
+                        <span class="alertNotificationTitle" [ngClass]="'alert-' + (alertModalDefault.type || 'danger')">{{alertModalDefault.title}}</span>
+                    </div>
+                    <div class="alertNotificationMsg">
+                        <span>{{alertModalDefault.bodyText}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div bsModal #loadingModal="bs-modal" [config]="modalConfig" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="loadingContent" align="center" style="height: 100%;">
+                    <img alt="Loading  Content" src="assets/images/loading.gif" />
+                    <p>Loading</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ -->

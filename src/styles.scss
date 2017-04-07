@@ -1,1 +1,230 @@
-/* You can add global styles to this file, and also import other style files */
+/****************************************************************
+    PARALLAX CURRICULUM VITAE
+    Author: Mario González Duarte
+    http://www.mariogonzalezduarte.es
+*****************************************************************/
+
+
+/*
+ Global reset
+
+*****************************************************************/
+
+@charset "UTF-8";
+a:hover,
+body {
+    color: #000
+}
+
+body,
+hr {
+    margin: 0
+}
+
+
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+img,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    overflow-x: hidden;
+    height: auto;
+    background: #FFF;
+    line-height: 1.5;
+    font-size: 14px;
+    font-family: 'Open Sans', Agenda-Light, Agenda\ Light, Agenda, Arial\ Narrow, sans-serif;
+    padding-right: 0!important;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+h1 {
+    color: #21a97e;
+}
+
+a,
+a:active,
+a:link,
+a:visited {
+    transition: color .25s ease-out;
+    color: #21a97e;
+    outline: 0;
+    text-decoration: none;
+}
+
+p {
+    margin: 1em 13em 0 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #3b3b3b;
+    border-bottom: 1px solid #3b3b3b;
+    height: 3px;
+    width: 90%;
+}
+
+/* Maps  CSS */
+
+.map-wrapper {
+    .sebm-google-map-container-inner {
+        border-radius: 10px;
+    }
+
+    h3.info-window {
+        font-weight: 700;
+        font-size: 25px;
+        margin: 0;
+    }
+
+    .infoWindowContent {
+        font-size: 14px!important;
+        border-top: 1px solid #ccc;
+        padding-top: 10px;
+    }
+}
+
+
+
+/* Overwrite Bootstrap Modals CSS */
+.modal-header {
+    border-bottom: 0;
+    padding: 0;
+    min-height: 0;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+.modal-content {
+    background-color: #fff;
+    box-shadow: 0 0 1px 4px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 0 1px 4px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 0 1px 4px rgba(0, 0, 0, .3);
+    width: 90%;
+    padding: 2px;
+    position: absolute;
+    top: 165px;
+    left: 5%;
+    z-index: 9999;
+}
+
+.modal-footer {
+    border-top: 0!important;
+}

@@ -1,0 +1,53 @@
+{
+    "language_english": "Inglés",
+    "language_spanish": "Español",
+    "buttonToTop": "Inicio",
+    "menu": "Menú",
+    "title_main": "Inicio",
+    "title_experience": "Experiencia",
+    "title_skills": "Conocimientos",
+    "title_training": "Formación",
+    "title_languages": "Idiomas",
+    "title_contact": "Contacto",
+    "title_idiom": "Idioma",
+    "linkDescription": "Ver",
+    "education": "Educación",
+    "courses": "Cursos",
+    "contactForm": {
+        "title": "Contacto",
+        "subtitle": "Escríbeme y te contestaré lo antes posible!",
+        "placeholders": {
+            "name": "Tu nombre",
+            "email": "Tu dirección de email",
+            "message": "Tu mensaje...."
+        },
+        "button": {
+            "submit": "Enviar",
+            "sending": "Enviando..."
+        },
+        "confirm": {
+            "title": "Mensaje enviado",
+            "subtitle": "Responderé pronto :)"
+        },
+        "error": {
+            "title": "Error al enviar el mensaje",
+            "subtitle": "Parece que hay algun problema con el servidor. Inténtalo de nuevo.",
+            "emailMe": "O si prefieres, enviame un email directamente a:"
+        }
+    },
+    "maps": {
+        "boston": "Actualmente trabajando y viviendo aquí.",
+        "madrid": "última ciudad donde he vivido."
+    },
+    "dates": {
+        "today": "Fecha actual",
+        "month": " mes",
+        "months": " meses",
+        "year": " año",
+        "years": " años"
+    },
+    "contactTextWarning": "Nota:",
+    "contactTextExplanation": "Debido a que mi nacionalidad es española, para poder optar a posiciones en Estados Unidos es necesario que la empresa interesada proporcione una VIsa internacional de trabajo",
+    "loading": "Cargando",
+    "loadingError": "Ha ocurrido un error al cargar los datos. Intente recargar la página."
+}

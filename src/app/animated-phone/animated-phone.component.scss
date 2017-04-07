@@ -1,0 +1,153 @@
+
+.phone_container {
+    -webkit-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+    -ms-transform: perspective(1000px);
+    -moz-transform: perspective(1000px);
+    float: left
+}
+
+.back,
+.front,
+.phone_container.hover .back {
+    -ms-transform: rotateY(0);
+    -webkit-transform: rotateY(0)
+}
+
+.phone_container.hover .back {
+    transform: rotateY(0)
+}
+
+.phone_container.hover .front {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg)
+}
+
+.back,
+.front,
+.phone_container {
+    width: 200px;
+    height: 84px;
+    border-radius: 10px
+}
+
+.phone_card {
+    -webkit-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -moz-transform: perspective(1000px);
+    transition: .5s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative
+}
+
+.phone_card,
+.phone_container {
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d
+}
+
+.back,
+.front {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: .6s;
+    -moz-transition: .6s;
+    -moz-transform-style: preserve-3d;
+    -moz-transform: rotateY(0);
+    -o-transition: .6s;
+    -o-transform-style: preserve-3d;
+    -o-transform: rotateY(0);
+    -ms-transition: .6s;
+    -ms-transform-style: preserve-3d;
+    transition: .6s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transform: rotateY(0);
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.front {
+    -webkit-transform: rotateY(0);
+    -ms-transform: rotateY(0);
+    border: 1px solid #222;
+    z-index: 2
+}
+
+.back {
+    border: 1px solid #fff;
+    text-align: center;
+    -webkit-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg)
+}
+
+.front .name {
+    font-size: 2em;
+    background: rgba(33, 33, 33, .9);
+    color: #f8f8f8;
+    font-family: Courier;
+    padding: 5px 10px;
+    bottom: 60px;
+    left: 25%;
+    position: absolute;
+    text-shadow: .1em .1em .05em #333;
+    display: none;
+    -webkit-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    transform: rotate(-20deg)
+}
+
+#phone-wrapper {
+    color: #fff;
+    width: 200px;
+    float: left;
+    height: 84px;
+    border-radius: 10px;
+    padding: 10px
+}
+
+#phone-wrapper .phone-number {
+    color: #fff;
+    width: 100%;
+    font-size: 18px
+}
+
+
+
+
+@media screen and (max-width:760px) {
+   /* .back, .front, .phone_container {
+        width: 150px;
+        height: 84px;
+        border-radius: 10px
+    }
+    #phone-wrapper {
+        width: 150px
+    }*/
+    #phone-wrapper > span {
+        font-size: 15px
+    }
+
+    #phone-wrapper,
+    .back,
+    .front,
+    .phone_container {
+        width: 260px;
+        height: 84px;
+        border-radius: 10px;
+    }
+}
+/*
+@media screen and (max-width:450px) {
+    #phone-wrapper,
+    .back,
+    .front,
+    .phone_container {
+        width: 260px
+    }
+}*/

@@ -1,0 +1,205 @@
+<div parallax id="wrapper">
+    <header id="header" class="pagewidth">
+        <div background class="background">
+            <div id="header">
+                <div class="start-title">
+                    <div><span class="name">{{cvData?.title.nameTitle}}</span></div>
+                    <div><span class="description">{{cvData?.title.descriptionTitle}}</span></div>
+                </div>
+                <div class="down-link">
+                    <a href="#experience" title="" class="scroll-down-link" aria-hidden="true" data-av_icon="" data-av_iconfont="entypo-fontello"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nav-bar" class="clearfix">
+            <nav>
+                <div menu id="menu-icon" class="mobile-button" (click)="toggleMobileMenu()">
+                    <span>{{'menu' | translate}}</span>
+                </div>
+                <ul id="main-nav" class="main-nav pagewidth">
+                    <li menu id="menu-item-main" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-main current_page_item" (click)="changeSection('header')"><a class="header" [ngClass]="{'current-page-item': currentSection === 'header'}">{{ 'title_main' | translate }}</a></li>
+                    <li menu id="menu-item-experience" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-experience" (click)="changeSection('experience')"><a class="experience" [ngClass]="{'current-page-item': currentSection === 'experience'}">{{ 'title_experience' | translate }}</a></li>
+                    <li menu id="menu-item-skills" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-skills" (click)="changeSection('skills')"><a class="skills" [ngClass]="{'current-page-item': currentSection === 'skills'}">{{ 'title_skills' | translate }}</a></li>
+                    <li menu id="menu-item-training" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-training" (click)="changeSection('training')"><a class="training" [ngClass]="{'current-page-item': currentSection === 'training'}">{{ 'title_training' | translate }}</a></li>
+                    <li menu id="menu-item-languages" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-languages" (click)="changeSection('languages')"><a class="languages" [ngClass]="{'current-page-item': currentSection === 'languages'}">{{ 'title_languages' | translate }}</a></li>
+                    <li menu id="menu-item-contact" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-contact" (click)="changeSection('contact')"><a class="contact" [ngClass]="{'current-page-item': currentSection === 'contact'}">{{ 'title_contact' | translate }}</a></li>
+                    <li menu id="menu-item-idiom" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-idiom"><a class="idiom">{{ 'title_idiom' | translate }}</a>
+                        <ul class="sub-menu">
+                            <li class="menu-idiom-1"><a (click)="changeLanguage('en')" [ngClass]="{'idiom-selected': _translate.currentLang == 'en' }">{{'language_english' | translate}}</a></li>
+                            <li class="menu-idiom-2"><a (click)="changeLanguage('es')" [ngClass]="{'idiom-selected': _translate.currentLang == 'es' }">{{'language_spanish' | translate}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <nav id="dots" class="hidden-lanscape-mobile">
+        <ul>
+            <li menu *ngFor="let dot of dotsCollection; let i = index" on-mouseover="isLabelActive = i" on-mouseout="isLabelActive = -1" (click)="changeSection(dot.id)">
+                <h1 [class.hover]="isLabelActive == i">{{dot.title | translate}}</h1>
+                <a class="{{dot.id}}" [ngClass]="{'active': currentSection == dot.id}">{{'linkDescription' | translate}}</a>
+            </li>
+        </ul>
+    </nav>
+    <div id="content">
+        <section id="experience" class="experience-section">
+            <div class="col-md-12 col-xs-12">
+                <div class="row">
+                    <div class="visible-mobile">
+                        <div class="col-md-2 col-xs-12 photograph-mobile">
+                            <figure class="photograph-image">
+                                <img src="assets/images/cvphoto.jpg" alt="Mario González Duarte">
+                            </figure>
+                        </div>
+                        <div class="col-md-10 col-xs-12">
+                            <h1 class="section-title">{{'title_experience' | translate}}</h1>
+                        </div>
+                    </div>
+                    <div class="hidden-mobile">
+                        <div class="col-md-10 col-xs-8">
+                            <h1 class="section-title">{{'title_experience' | translate}}</h1>
+                        </div>
+                        <div id="photograph" class="col-md-2 col-xs-4 photograph">
+                            <figure class="photograph-image">
+                                <img src="assets/images/cvphoto.jpg" alt="Mario González Duarte" />
+                            </figure>
+                        </div>
+                    </div>
+                    <article *ngFor="let experience of cvData?.experience; let i = index">
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <div class="experience-article-container">
+                                <div class="col-md-12 hidden-mobile">
+                                    <div class="experience-header">
+                                        <div class="title">{{experience.position}}</div>
+                                        <div class="companyLogo">
+                                            <a href="{{experience.url}}" target="_blank" title="Link to {{experience.url}}"><img id="logo{{i + 1}}" src="assets/images/{{experience.imgCompany}}" /></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="date">{{experience.dateFrom}} - {{experience.dateTo || ('dates.today' | translate)}} {{calculatePeriod(experience.dateFrom, experience.dateTo)}}&nbsp;&nbsp;&nbsp;|</div>
+                                            <div class="place">{{experience.place}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 visible-mobile">
+                                    <div class="row mobile-logo">
+                                        <div class="companyLogo">
+                                            <a href="{{experience.url}}" target="_blank" title="Link to {{experience.url}}"><img id="logo{{i + 1}}" src="assets/images/{{experience.imgCompany}}" /></a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 title-mobile">{{experience.position}}</div>
+                                    </div>
+                                    <div class="date">{{experience.dateFrom}} - {{experience.dateTo || ('dates.today' | translate)}} {{calculatePeriod(experience.dateFrom, experience.dateTo)}}</div>
+                                    <div class="place">{{experience.place}}</div>
+                                </div>
+                                <div class="col-md-12 description">
+                                    <div *ngFor="let description of experience.description">{{description.text}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2"></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="skills">
+            <div class="col-md-12 col-xs-12">
+                <h1 class="section-title">{{'title_skills' | translate}}</h1>
+                <div class="skills-section">
+                    <div class="skills-wrapper">
+                        <article *ngFor="let skill of cvData?.skills">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="progress">
+                                    <div class="progress-bar" [ngClass]="{'progress-bar-excellent': skill.level >= 85, 'progress-bar-very-good': skill.level >= 70 && skill.level < 85, 'progress-bar-good': skill.level >= 60 && skill.level < 70, 'progress-bar-ok': skill.level >= 50 && skill.level < 60, 'progress-bar-bad': skill.level >= 0 && skill.level < 50}" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                        <i class="progress-bar-label">{{skill.flair}}</i>
+                                        <span class="sr-only">{{skill.level}}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="training">
+            <div class="col-md-12 col-xs-12">
+                <h1 class="section-title">{{'title_training' | translate}}</h1>
+                <h2>{{'education' | translate}}</h2>
+                <article  *ngFor="let form of cvData?.training">
+                    <div class="training-section">
+                        <div class="degree">{{form.degree}}</div>
+                        <div class="place">{{form.place}}</div>
+                    </div>
+                </article>
+                <h2>{{'courses' | translate}}</h2>
+                <div class="courses">
+                    <ul class="list-courses">
+                        <li *ngFor="let course of cvData?.complementaryTraining">
+                            <img src="assets/images/{{course.image}}">
+                            <h3>{{course.title}}</h3>
+                            <p>{{course.description}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="languages">
+            <div class="col-md-12 col-xs-12">
+                <h1 class="section-title">{{'title_languages' | translate}}</h1>
+                <div class="languages-section">
+                    <div class="languages-wrapper">
+                        <article *ngFor="let language of cvData?.languages">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="progress">
+                                    <div class="progress-bar" [ngClass]="{'progress-bar-excellent': language.level >= 85, 'progress-bar-very-good': language.level >= 70 && language.level < 85, 'progress-bar-good': language.level >= 60 && language.level < 70, 'progress-bar-ok': language.level >= 50 && language.level < 60, 'progress-bar-bad': language.level >= 0 && language.level < 50}" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                        <i class="progress-bar-label">{{language.language}}</i>
+                                        <span class="sr-only">{{language.level}}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="contact-section">
+                <h1 class="section-title-white">{{'title_contact' | translate}}</h1>
+                <div class="container-contact">
+                    <div class="contact-text"><span>{{'contactTextWarning' | translate}} </span>{{cvData?.contact.textExplanation}}</div>
+                    <div class="map-wrapper">
+                       <google-maps [myMapOptions]="cvData?.contact.maps"></google-maps>
+                    </div>
+                </div>
+                <div class="col-md-12 col-xs-12 container-contact2">
+                    <div class="social-widgets">
+                        <ul class="social-links horizontal">
+                            <li class="social-link-item" *ngFor="let item of cvData?.social" [ngSwitch]="item.name">
+                                <a *ngSwitchCase="'cell_phone'" title="{{item.description}}" class="contact-link" (click)="showPhones()">
+                                    <img id="{{item.name}}" src="assets/images/{{item.image}}" width="50" height="50" alt="{{item.description}}" />
+                                </a>
+                                <a *ngSwitchCase="'email'" title="{{item.description}}" class="contact-link" (click)="showFormContact()">
+                                    <img id="{{item.name}}" src="assets/images/{{item.image}}" width="50" height="50" alt="{{item.description}}" />
+                                </a>
+                                <a *ngSwitchDefault href="{{item.url}}" title="{{item.description}}" target="_blank">
+                                    <img id="{{item.name}}" src="assets/images/{{item.image}}" width="50" height="50" alt="{{item.description}}" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <animated-phone [phoneDivOpened]="phoneDivOpened" [phoneData]="cvData?.personalData.phones"></animated-phone>
+                </div>
+            </div>
+        </section>
+        <footer id="footer" class="pagewidth">
+            <p class="back-top"><a class="main" (click)="changeSection('header')">{{'buttonToTop' | translate}}</a></p>
+            <div class="footer-text clearfix">
+                <div>{{cvData?.personalData?.name}} • {{currentYear}}</div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<modals-component (modalOutput)="onModalOutput($event)"></modals-component>

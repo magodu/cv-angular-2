@@ -1,0 +1,13 @@
+<sebm-google-map [latitude]="mapOptionsDefaults.latitude"
+                 [longitude]="mapOptionsDefaults.longitude"
+                 [zoom]="mapOptionsDefaults.zoom"
+                 [disableDefaultUI]="false">
+    <sebm-google-map-marker *ngFor="let m of markers; let i = index" [latitude]="m.latitude" [longitude]="m.longitude" [markerDraggable]="m.draggable">
+        <sebm-google-map-info-window [disableAutoPan]="false">
+            <div style="overflow: auto;">
+                <h3 class="info-window">{{m.city}}</h3>
+                <div class="infoWindowContent">{{m.label}}</div>
+            </div>
+        </sebm-google-map-info-window>
+    </sebm-google-map-marker>
+</sebm-google-map>

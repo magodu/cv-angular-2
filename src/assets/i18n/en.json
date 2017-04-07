@@ -1,0 +1,53 @@
+{
+    "language_english": "English",
+    "language_spanish": "Spanish",
+    "buttonToTop": "Back to top",
+    "menu": "Menu",
+    "title_main": "Main",
+    "title_experience": "Experience",
+    "title_skills": "Skills",
+    "title_training": "Training",
+    "title_languages": "Languages",
+    "title_contact": "Contact",
+    "title_idiom": "Idiom",
+    "linkDescription": "View",
+    "education": "Education",
+    "courses": "Courses",
+    "contactForm": {
+        "title": "Quick Contact",
+        "subtitle": "Contact me and I'll reply to you soon!",
+        "placeholders": {
+            "name": "Your name",
+            "email": "Your email address",
+            "message": "Type your message here...."
+        },
+        "button": {
+            "submit": "Submit",
+            "sending": "Sending..."
+        },
+        "confirm": {
+            "title": "Message sent",
+            "subtitle": "I'll reply to you soon :)"
+        },
+        "error": {
+            "title": "Error sending message",
+            "subtitle": "Opps! There is some problem with the server. Try again.",
+            "emailMe": "If you prefer, you can also email me directly to:"
+        }
+    },
+    "maps": {
+        "boston": "Currently working and living here.",
+        "madrid": "Last city where I've lived."
+    },
+    "dates": {
+        "today": "Today",
+        "month": " month",
+        "months": " months",
+        "year": " year",
+        "years": " years"
+    },
+    "contactTextWarning": "Notice:",
+    "contactTextExplanation": "For being available to US position, is necessary to be sponsored in an international Visa, due to I'm Spanish.",
+    "loading": "Loading",
+    "loadingError": "Error loading data has occurred. Try to reload the site."
+}

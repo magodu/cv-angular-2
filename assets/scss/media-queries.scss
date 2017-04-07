@@ -1,0 +1,440 @@
+@media screen and (max-width: 1302px) {
+    .name {
+        font-size: 2.3em;
+    }
+    .description {
+        font-size: 2.1em;
+    }
+}
+
+@media screen and (max-width: 1210px) {
+	.name {
+        font-size: 1.8em;
+    }
+    .description {
+        font-size: 1.4em;
+    }
+
+    #map {
+        height: 320px;
+        width: 400px;
+    }
+
+    .map-wrapper {
+        height: 320px;
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 982px) {
+    .name {
+        font-size: 1.5em;
+    }
+    .description {
+        font-size: 1em;
+    }
+}
+
+
+@media screen and (max-width: 760px) {
+    
+    /************************************************************************************
+        mobile classes
+    *************************************************************************************/ 
+    .hidden-lanscape-mobile {
+        display: none !important;
+    }
+
+
+    /************************************************************************************
+	MAIN NAV (MOBILE)
+	*************************************************************************************/
+    #main-nav {
+        display: none;
+    }
+    #wrapper #main-nav-wrap {
+        position: absolute;
+        top: 5px;
+        right: 95px;
+        z-index: 1000;
+    }
+    #wrapper nav {
+        text-align: left;
+        margin-left: 0.5em;
+    }
+    /* menu icon */
+    #menu-icon:before {
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+        display: inline-block;
+        margin: -4px 5px 0 0;
+    }
+
+    .menu-item-idiom {
+        color: #666;
+        font-weight: bold;
+    }
+
+    .sub-menu > li {
+        font-size: 0.85em;
+        font-weight: normal;
+    }
+    /* main nav */
+    #wrapper #main-nav {
+        clear: both;
+        position: absolute;
+        width: 180px;
+        height: auto;
+        z-index: 1000;
+        padding: 10px 12px;
+        background: #fff;
+        display: none;
+        margin-left: -5px;
+        border: solid 1px #ccc;
+    }
+    #wrapper #main-nav li {
+        clear: both;
+        float: none;
+        padding: 5px 0;
+        position: static;
+        display: block;
+        border-top: 1px solid #e5e5e5;
+    }
+    #wrapper #main-nav li:first-child {
+        border: none;
+    }
+    #wrapper #main-nav a,
+    #wrapper #main-nav ul a {
+        font: inherit;
+        font-size: .85em;
+        text-transform: inherit;
+        background: none;
+        width: auto;
+        display: block;
+        padding: 0;
+        color: #666;
+        border: none;
+    }
+    #wrapper #main-nav a:hover,
+    #wrapper #main-nav ul a:hover {
+        background: none;
+        color: #000;
+    }
+
+    #skills {
+	    position: absolute;
+	}
+
+    #experience,
+    #skills,
+    #training,
+    #complementary-training,
+    #languages {
+        padding-top: 50px;
+    }
+
+    #main {
+        height: 375px;
+        padding-top: 0px;
+    }
+
+    /* dropdown */
+    #wrapper #main-nav ul {
+        position: static;
+        display: block;
+        margin: 0;
+        padding: 0;
+        background: none;
+        border: none;
+    }
+    #wrapper #main-nav ul ul {
+        margin: 0;
+        text-align: center;
+    }
+    #wrapper #main-nav ul ul:before {
+        display: none;
+    }
+    /* home navigation */
+    #wrapper #main-nav {
+        top: auto;
+        bottom: 60px;
+        max-height: 420px;
+        overflow: auto;
+    }
+    .no-header #wrapper #main-nav,
+    .fixed-header-on #wrapper #main-nav {
+        position: absolute;
+        top: 60px;
+        bottom: auto;
+    }
+
+
+    /************************************************************************************
+    Modals
+    *************************************************************************************/
+
+    .modal-content {
+        width: 70%; 
+        top: 70px;
+        left: 15%;
+    }
+
+    /************************************************************************************
+	MOBILE NAV BUTTON
+	*************************************************************************************/
+    .mobile-button {
+        position: relative;
+        height: 20px;
+        margin: auto;
+        display: inline-block;
+        cursor: pointer;
+        padding: 20px 0;
+        white-space: nowrap;
+        text-align: left;
+        color: #fff;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+    .mobile-button:after {
+        padding: 1px;
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        z-index: -1;
+    }
+
+    /************************************************************************************
+	MOBILE NAV BUTTON
+	*************************************************************************************/
+    div #startTitle {
+        width: 400px;
+        top: 50%;
+        left: 50%;
+        margin: -100px 0 0 -200px;
+    }
+
+    .name {
+        font-size: 1.5em;
+    }
+    .description {
+        font-size: 1em;
+    }
+    .section-title {
+        font-size: 28px;
+        text-align: left;
+    }
+
+    .section-title-white {
+        font-size: 28px;
+        text-align: left;
+    }
+
+    /* Experience section */
+
+	.experienceSection .date{
+	    font-size: 13px;
+	    float: left;
+	    margin-right: 10px;
+	}
+
+	.experienceSection .place {
+	    font-size: 13px;
+	}
+
+	.experienceSection .description {
+	    font-size: 17px;
+	}
+
+    #content section .photograph {
+        visibility: visible;
+        height: 10em;
+    }
+
+    .skills-section, .languages-section, .training-section {
+        width: 90%;
+    }
+
+    .photograph-image {
+        margin-right: 0em;
+        position: absolute;
+        right: 6em;
+    }
+
+    .photograph-image img{
+        width: 100px;
+    }
+
+    div.courses {
+        margin-left: 2em;
+    }
+
+    ul.courses {
+        width: 100%;
+    }
+
+    ul.courses li
+    {
+        width: 95%;  /* accommodate the widest item */
+    }
+
+    .contact-text {
+        width: 100%;
+        font-size: 16px;
+      
+    }
+
+    .phone_container, .front, .back {
+        width: 150px;
+        height: 84px;
+        border-radius: 10px;
+    }
+
+    #phone-wrapper {
+        width: 150px;
+    }
+
+    #phone-wrapper > span {
+        font-size: 15px;
+    }
+
+}
+
+
+@media screen and (max-width: 450px) {
+
+    /************************************************************************************
+        mobile classes
+    *************************************************************************************/ 
+    .hidden-mobile {
+        display: none !important;
+    }
+
+    .visible-mobile {
+        display: block !important;
+    }
+
+    /************************************************************************************/
+
+    #content section {
+        margin-left: 0px;
+    }
+
+    div #startTitle {
+        width: 300px;
+        margin: -100px 0 0 -150px;
+    }
+
+    .name {
+        font-size: 1.1em;
+    }
+
+    .description {
+        font-size: 0.9em;
+    }
+
+    .experienceSection {
+        width: 100%;
+    }
+
+    .title-mobile {
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .experienceSection .date {
+        width: 100%;
+    }
+
+    .experience-header .companyLogo {
+        margin-left: 87px;
+    }
+
+    .photograph-mobile {
+        position: relative;
+        height: 40px;
+    }
+
+    .photograph-image {
+        position: absolute;
+        right: 1em;
+    }
+
+    .mobile-logo {
+        position: relative;
+        height: 40px;
+    }
+
+    .mobile-logo .companyLogo {
+        position: absolute;
+        right: 0px;
+    }
+
+    .skills-section, .languages-section {
+        width: 100%;
+    }
+
+    .skills-section {
+        padding: 3em 0 1em 0;
+    }
+
+    .skills-wrapper, .languages-wrapper {
+        width: 100%;
+        margin-left: 0em;
+    }
+
+    .skills-wrapper > article,
+    .languages-wrapper > article {
+        width: 50%;
+        margin-right: 0px;
+    }
+
+    .progress-bar .progress-bar-label {
+        font-size: 15px;
+    }
+
+    #content h2 {
+        font-size: 18px;
+        border-left: 5px solid #000;
+    }
+
+    div.courses {
+        margin-left: 1em;
+    }
+
+    #map {
+        height: 200px;
+        width: 200px;
+    }
+
+    .map-wrapper {
+        height: 200px;
+        width: 200px;
+    }
+
+    .container-contact2 {
+        height: 6rem;
+        width: 20rem;
+        top: calc(50% - -5rem);
+    }
+
+    .phone_container, .front, .back {
+        width: 260px;
+    }
+
+    #phone-wrapper {
+        width: 260px;
+    }
+
+    #phone-wrapper > span {
+        font-size: 18px;
+    }
+
+
+}
+
+
+

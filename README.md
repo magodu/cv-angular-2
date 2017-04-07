@@ -1,6 +1,16 @@
-# ResumeAngular2
+# Description
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.26.
+This project is a full responsive Curriculum vitae online coded in Angular 2
+
+## New features
+
+- Updated to Angular 2.3.1
+- Angular CLI
+- Form contact
+- Layout redesign
+
+
+# Usage
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

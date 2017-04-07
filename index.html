@@ -1,0 +1,40 @@
+<!doctype>
+<html>
+<head>
+    <base href="/">
+    <title>Angular 2 Boilerplate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="node_modules/angular2-google-maps/bundles/angular2-google-maps.js"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.js"></script>
+    <script src="node_modules/ng2-bs3-modal/bundles/ng2-bs3-modal.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+
+    <!-- 3. User files -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="stylesheet" href="src/css/media-queries.css">
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+
+</head>
+<body>
+<!-- 4. Display the application -->
+<my-app>Loading...</my-app>
+
+<script>
+    System.import('app').catch(function(err){ console.error(err);  });
+</script>
+</body>
+</html>

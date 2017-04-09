@@ -98,7 +98,7 @@ nav#dots {
             padding: 4px 20px 4px 7px;
             color: #fff;
             white-space: nowrap;
-            background: url(./assets/images/nav-arrow.png) 100% 50% no-repeat;
+            background: url(../../assets/images/nav-arrow.png) 100% 50% no-repeat;
         }
 
         h1.hover {
@@ -110,12 +110,12 @@ nav#dots {
             width: 20px;
             height: 20px;
             text-indent: -9999px;
-            background: url(./assets/images/nav-dot.png) 4px 4px no-repeat;
+            background: url(../../assets/images/nav-dot.png) 4px 4px no-repeat;
             cursor: pointer;
         }
 
         a.active, a:hover {
-            background: url(./assets/images/nav-dot.png) 4px -16px no-repeat;
+            background: url(../../assets/images/nav-dot.png) 4px -16px no-repeat;
         }
     }
 }

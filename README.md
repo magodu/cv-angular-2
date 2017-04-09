@@ -4,7 +4,7 @@ This project is a full responsive Curriculum vitae online coded in Angular 2
 
 ## New features
 
-- Updated to Angular 2.3.1
+- Updated to Angular 4.0.1
 - Form contact
 - Layout redesign
 

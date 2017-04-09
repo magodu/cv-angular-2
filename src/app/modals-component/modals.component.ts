@@ -3,6 +3,16 @@ import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { ResumeService } from '../resume-cv/resume.service';
 import { TranslateService } from '@ngx-translate/core';
 
+
+
+// interface
+interface ModalDataType {
+    type?: string;
+    title?: string;
+    bodyText?: string;
+}
+
+
 @Component({
     selector: 'modals-component',
     templateUrl: 'modals.component.html',
@@ -23,13 +33,13 @@ export class ModalsComponent {
     keyboard: boolean = false;
     backdrop: string | boolean = 'static';
 
-    alertModalDefault: Object = {
+    alertModalDefault: ModalDataType = {
         type: 'danger',
         title: 'Error',
         bodyText: ''
     };
 
-    modalDefault: Object = {
+    modalDefault: ModalDataType = {
         title: 'Modal example',
         bodyText: 'Select one:'
     };

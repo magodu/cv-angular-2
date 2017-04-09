@@ -30,7 +30,7 @@ export class ResumeComponent implements OnInit, AfterViewInit {
     };
 
     response: string;
-    cvData: Object;
+    cvData: any;
     currentYear: number;
 
     modalData: string;
@@ -40,7 +40,7 @@ export class ResumeComponent implements OnInit, AfterViewInit {
 
     public phoneDivOpened: boolean = false;
 
-    constructor(private _resumeService: ResumeService, private _translate: TranslateService) {
+    constructor(private _resumeService: ResumeService, public _translate: TranslateService) {
         _translate.addLangs(['en', 'es']);
         _translate.setDefaultLang('en');
 

@@ -1,18 +1,19 @@
 import {Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 
-// interfaces.
+// interfaces
 interface Marker {
+    zoom?: number; 
     latitude: number;
     longitude: number;
-    city: string;
+    city?: string;
     label?: string;
-    draggable: boolean;
+    draggable?: boolean;
 }
 
 
 interface mapData {
-    default: Object;
+    default: Marker;
     markers: Marker[];
 }
 
@@ -31,7 +32,7 @@ interface mapData {
 export class GoogleMapsComponent implements OnChanges {
     @Input() myMapOptions: mapData;
 
-    mapOptionsDefaults: Object = {
+    mapOptionsDefaults: Marker = {
         zoom: 6,
         latitude: 40,
         longitude: -3

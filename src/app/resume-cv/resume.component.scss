@@ -98,7 +98,7 @@ nav#dots {
             padding: 4px 20px 4px 7px;
             color: #fff;
             white-space: nowrap;
-            background: url(./assets/images/nav-arrow.png) 100% 50% no-repeat;
+            background: url(../../assets/images/nav-arrow.png) 100% 50% no-repeat;
         }
 
         h1.hover {
@@ -110,12 +110,12 @@ nav#dots {
             width: 20px;
             height: 20px;
             text-indent: -9999px;
-            background: url(./assets/images/nav-dot.png) 4px 4px no-repeat;
+            background: url(../../assets/images/nav-dot.png) 4px 4px no-repeat;
             cursor: pointer;
         }
 
         a.active, a:hover {
-            background: url(./assets/images/nav-dot.png) 4px -16px no-repeat;
+            background: url(../../assets/images/nav-dot.png) 4px -16px no-repeat;
         }
     }
 }
@@ -958,9 +958,9 @@ nav#dots {
         z-index: -1
     }
     div .start-title {
-        top: 50%;
+        top: 20%;
         width: 80% !important;
-        margin: -100px 20px 0 -150px !important;
+        margin: 0 10% !important;
     }
     .name {
         font-size: 1.5em;
@@ -1037,8 +1037,8 @@ nav#dots {
         padding-left: 5px !important;
     }
     div .start-title {
-        width: 80% !important;
-        margin: -100px 45px 0 -150px !important;
+        top: 30%;
+        width: 80% !important; 
     }
     #experience .experience-article-container,
     #experience .experience-article-container .date,

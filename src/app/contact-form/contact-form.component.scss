@@ -149,6 +149,15 @@
         }
     }
 
+    .error {
+        width: 80%;
+        margin: 0 auto;
+
+        @media screen and (max-width:450px) {
+            width: 100%;
+        }
+    }
+
 }
 
 

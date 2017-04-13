@@ -5,6 +5,8 @@ import { HttpModule, Http } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { TranslateModule, TranslateLoader} from "@ngx-translate/core";
+import { TranslateHttpLoader} from "@ngx-translate/http-loader";
 
 import { routing } from "./app.routing";
 import { AppComponent } from './app.component';
@@ -19,8 +21,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ResumeService } from './resume-cv/resume.service';
 import { ContactFormService } from './contact-form/contact-form.service';
 import { HttpService } from "./shared/http.service";
-import { TranslateModule, TranslateLoader} from "@ngx-translate/core";
-import { TranslateHttpLoader} from "@ngx-translate/http-loader";
+
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
@@ -36,11 +37,11 @@ export function HttpLoaderFactory(http: Http) {
         ReactiveFormsModule,
         Ng2Bs3ModalModule,
         TranslateModule.forRoot({
-          loader: {
-            provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
-            deps: [Http]
-          }
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [Http]
+            }
         }),
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyD-xSxeguqtWK4kNUrDTTU0gsNK0iXIYK4'

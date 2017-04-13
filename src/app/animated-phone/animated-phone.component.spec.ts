@@ -5,7 +5,7 @@ import { DebugElement }    from '@angular/core';
 import { AnimatedPhoneComponent } from './animated-phone.component';
 
 
-describe('BannerComponent (inline template)', () => {
+describe('AnimatedPhoneComponent (inline template)', () => {
 
     let comp:    AnimatedPhoneComponent;
     let fixture: ComponentFixture<AnimatedPhoneComponent>;
@@ -30,7 +30,7 @@ describe('BannerComponent (inline template)', () => {
 
         expectedNumber = phoneDataMock[0];
         
-     });
+    });
 
 
     it('should display the phones in phoneData var content', () => {

@@ -7,6 +7,15 @@ import { ResumeService } from './resume.service';
 import { MenuDirective } from './menu.directive';
 import { ModalsComponent } from '../modals-component/modals.component';
 
+// interface
+interface DateLiteral {
+    today?: string;
+    month: string;
+    months: string;
+    year: string;
+    years: string;
+}
+
 
 @Component({
     selector: 'my-resume',
@@ -37,6 +46,7 @@ export class ResumeComponent implements OnInit, AfterViewInit {
 
     currentSection: string = '';
     labelActive: boolean = false;
+    datesLiterals: DateLiteral;
 
     public phoneDivOpened: boolean = false;
 
@@ -76,6 +86,11 @@ export class ResumeComponent implements OnInit, AfterViewInit {
         this._resumeService.getData().subscribe(
             data => {   // the first argument is a function which runs on success
                         this.cvData = data.data;
+
+                        this._translate.get('dates').subscribe((literals: DateLiteral) => {
+                            this.datesLiterals = literals;
+                        }); 
+
                         this.modal.hideLoadingModal();
             },       
             err => {    // the second argument is a function which runs on error
@@ -152,22 +167,26 @@ export class ResumeComponent implements OnInit, AfterViewInit {
             txtYear: string = '';
 
         months = Math.ceil(days / 30);
-        period = months > 1 ? '(' + months + ' months)' : '(' + months + ' month)';
+        period = months > 1 ? '(' + months + ' LIT_MONTHS)' : '(' + months + ' LIT_MONTH)';
 
         if (months >= 12) {
             years = Math.floor(months / 12);
 
             if (months % 12 === 0) {
-                period = years > 1 ? '(' + years + ' years)' : '(' + years + ' year)';
+                period = years > 1 ? '(' + years + ' LIT_YEARS)' : '(' + years + ' LIT_YEAR)';
             } else {
-                txtYear = years !== 1 ? ' years' : ' year';
-                txtMonth = months % 12 !== 1 ? ' months' : ' month';
+                txtYear = years !== 1 ? ' LIT_YEARS' : ' LIT_YEAR';
+                txtMonth = months % 12 !== 1 ? ' LIT_MONTHS' : ' LIT_MONTH';
                 period = '(' + years + txtYear + ', ' + (months % 12) + txtMonth + ')';
             }
         }
 
+        period = period.replace(/LIT_YEARS/,  this.datesLiterals.years)
+                       .replace(/LIT_YEAR/,   this.datesLiterals.year)
+                       .replace(/LIT_MONTHS/, this.datesLiterals.months)
+                       .replace(/LIT_MONTH/,  this.datesLiterals.month);
+
         return period;
     }
-
 
 }

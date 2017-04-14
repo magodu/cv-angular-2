@@ -158,4 +158,38 @@ describe('ResumeComponent', () => {
     });
 
 
+    it('should return a string with the period between two dates', () => {
+        let testSets = {
+            datesLiterals: {
+                today: 'Today',
+                month: 'month',
+                months: 'months',
+                year: 'year',
+                years: 'years'
+            },
+            set1: {
+                dateFrom: '01/10/2011',
+                dateTo: '01/04/2015'
+            },
+            set2: {
+                dateFrom: '01/11/2008',
+                dateTo: '01/10/2011'
+            }
+        };
+
+        let fixture = TestBed.createComponent(ResumeComponent);
+        let app = fixture.debugElement.componentInstance;
+
+        app.datesLiterals = testSets.datesLiterals;
+
+        let period1: string = app.calculatePeriod(testSets.set1.dateFrom, testSets.set1.dateTo);
+        fixture.detectChanges();
+        expect(period1).toEqual('(3 years, 7 months)');
+
+        let period2: string = app.calculatePeriod(testSets.set2.dateFrom, testSets.set2.dateTo);
+        fixture.detectChanges();
+        expect(period2).toEqual('(3 years)');
+
+    });
+
 });

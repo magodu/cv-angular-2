@@ -1002,8 +1002,8 @@ nav#dots {
         position: absolute;
         right: 6em
     }
-    #photograph .photograph-image img {
-        width: 90px;
+    .photograph-image img {
+        width: 90px !important;
         margin-top: 20px;
     }
     

@@ -46,7 +46,12 @@ export class ResumeComponent implements OnInit, AfterViewInit {
 
     currentSection: string = '';
     labelActive: boolean = false;
-    datesLiterals: DateLiteral;
+    datesLiterals: DateLiteral = {
+        month: '',
+        months: '',
+        year: '',
+        years: ''
+    };
 
     public phoneDivOpened: boolean = false;
 

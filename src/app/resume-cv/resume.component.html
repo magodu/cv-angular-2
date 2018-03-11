@@ -168,7 +168,7 @@
             <div class="contact-section">
                 <h1 class="section-title-white">{{'title_contact' | translate}}</h1>
                 <div class="container-contact">
-                    <div class="contact-text"><span>{{'contactTextWarning' | translate}} </span>{{cvData?.contact.textExplanation}}</div>
+                    <div class="contact-text" *ngIf="cvData?.contact.textExplanation"><span>{{'contactTextWarning' | translate}} </span>{{cvData?.contact.textExplanation}}</div>
                     <div class="map-wrapper">
                        <google-maps [myMapOptions]="cvData?.contact.maps"></google-maps>
                     </div>

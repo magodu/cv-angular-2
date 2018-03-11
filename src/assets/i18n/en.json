@@ -36,8 +36,8 @@
         }
     },
     "maps": {
-        "boston": "Currently working and living here.",
-        "madrid": "Last city where I've lived."
+        "boston": "Last city where I've lived.",
+        "madrid": "Currently working and living here."
     },
     "dates": {
         "today": "Today",

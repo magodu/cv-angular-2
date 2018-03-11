@@ -38,7 +38,9 @@ export class MenuDirective {
         this.hideDotLabels();
 
         this.sectionTop = jQuery('#' + value).offset().top;
-        const elem: Element = this.detectIEFirefox() ? this.document.documentElement : document.body;
+        //const elem: Element = this.detectIEFirefox() ? this.document.documentElement : document.body;
+        const elem: Element = this.document.documentElement;
+
         const scroll: number = this.document.documentElement.scrollTop || document.body.scrollTop;
         const speed: number = 1 / 1000;
 
@@ -50,6 +52,7 @@ export class MenuDirective {
         this.isAnimationblocked = true;
 
         this.scrollToX(elem, scroll, this.sectionTop, 0, speed, 20, this.easeOutQuad);
+
     }
     
     private hideMenu(windowWidth: number) {
@@ -76,6 +79,7 @@ export class MenuDirective {
             _this.scrollToX(element, xFrom, xTo, t01, speed, step, motion);
         }, step);
     }
+
 
     private easeOutQuad(t: number) {
         return -t*(t-2);

@@ -16,7 +16,7 @@ export class HttpService {
         let options = new RequestOptions({ headers: headers });
 
         return this._http.post(url, body, options)
-            //.map(res => res.json())
+            .map(res => res.json())
             .catch(this.handleError)
 
     }

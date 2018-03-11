@@ -6,6 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
+    "build": "ng build --prod --aot",
     "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
     "buildProd": "ng build --prod --aot",
     "test": "ng test",

@@ -1,11 +1,11 @@
 {
   "name": "resume-angular2",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o",
+    "start": "ng serve -o --port 8032",
     "build": "ng build --prod --aot",
     "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
     "buildProd": "ng build --prod --aot",

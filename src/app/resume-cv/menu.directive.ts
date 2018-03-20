@@ -38,8 +38,7 @@ export class MenuDirective {
         this.hideDotLabels();
 
         this.sectionTop = jQuery('#' + value).offset().top;
-        //const elem: Element = this.detectIEFirefox() ? this.document.documentElement : document.body;
-        const elem: Element = this.document.documentElement;
+        const elem: Element = this.detectIE() ? document.body : this.document.documentElement;
 
         const scroll: number = this.document.documentElement.scrollTop || document.body.scrollTop;
         const speed: number = 1 / 1000;
@@ -118,19 +117,15 @@ export class MenuDirective {
     */
 
 
-    private detectIEFirefox() {
+    private detectIE() {
         let ua = window.navigator.userAgent;
         let isIE: boolean = false;
-        let isFirefox: boolean = false;
-
 
         if (ua.indexOf('MSIE ') > 0 || ua.indexOf('Trident/') > 0 || ua.indexOf('Edge/') > 0) {
             isIE = true;
-        } else if(ua.indexOf('Firefox') > 0) {
-            isFirefox = true;
         }
 
-        return isIE || isFirefox;
+        return isIE;
     }
 
 }

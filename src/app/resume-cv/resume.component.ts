@@ -28,29 +28,23 @@ export class ResumeComponent implements OnInit, AfterViewInit {
     @ViewChild(MenuDirective) menu: MenuDirective;
     @ViewChild(ModalsComponent) modal: ModalsComponent;
 
-    subscription: Subscription;
-    dotsCollection: Object[];
+    private subscription: Subscription;
 
-    mapOptions: Object = {
-        zoom: 4,
-        lat: 42.3133735,
-        lng: -71.0571571
-    };
-
-    response: string;
-    cvData: any;
-    currentYear: number;
-
-    modalData: string;
-
-    currentSection = '';
-    labelActive = false;
-    datesLiterals: DateLiteral = {
+    private datesLiterals: DateLiteral = {
         month: '',
         months: '',
         year: '',
         years: ''
     };
+
+    private modalData: string;
+
+    public dotsCollection: Object[];
+    public cvData: any;
+    public currentYear: number;
+
+    //labelActive = false;
+    public currentSection = '';
 
     public phoneDivOpened = false;
 
@@ -68,12 +62,12 @@ export class ResumeComponent implements OnInit, AfterViewInit {
         );
     }
 
-    getCurrentYear() {
+    getCurrentYear(): void {
         const currentDate = new Date();
         this.currentYear = currentDate.getFullYear();
     };
 
-    private openAlertModal(size?: string) {
+    private openAlertModal(size?: string): void {
         let modalData: Object;
         this._translate.get('loadingError').subscribe((literal: string) => {
             modalData = {
@@ -85,7 +79,7 @@ export class ResumeComponent implements OnInit, AfterViewInit {
         });
     }
 
-    getData() {
+    getData(): void {
         this.modal.showLoadingModal();
         this._resumeService.getData().subscribe(
             data => {   // the first argument is a function which runs on success
@@ -107,7 +101,7 @@ export class ResumeComponent implements OnInit, AfterViewInit {
         );
     }
 
-    changeLanguage(language: string) {
+    changeLanguage(language: string): void {
 
         if (this._translate.currentLang === language) {
             return;
@@ -124,24 +118,23 @@ export class ResumeComponent implements OnInit, AfterViewInit {
     }
 
 
-    showPhones() {
+    showPhones(): void {
         this.phoneDivOpened = !this.phoneDivOpened;
     }
 
-    onModalOutput(value) {
+    onModalOutput(value): void {
         this.modalData = value;
-        //console.log('Modal Output', typeof value, this.modalData);
     }
 
-    changeSection(value: string) {
+    changeSection(value: string): void {
         this.menu.changeSection(value);
     }
 
-    toggleMobileMenu() {
+    toggleMobileMenu(): void {
         this.menu.toggleMobileMenu();
     }
 
-    private getCookie(c_name) {
+    private getCookie(c_name: string) {
         let c_value = document.cookie;
         let c_start = c_value.indexOf(' ' + c_name + '=');
         let c_end;
@@ -163,20 +156,20 @@ export class ResumeComponent implements OnInit, AfterViewInit {
         return c_value;
     }
 
-    private setCookie(c_name, value, exdays) {
+    private setCookie(c_name, value, exdays): void {
         const exdate = new Date();
         exdate.setDate(exdate.getDate() + exdays);
         const c_value = encodeURI(value) + ((exdays === null) ? '' : '; expires=' + exdate.toUTCString());
         document.cookie = c_name + '=' + c_value;
     }
 
-    private showCookieAlert() {
+    private showCookieAlert(): void {
         if (this.getCookie('mariogonzalezduarte-web-aviso-cookies') === '1') {
-            jQuery('#aviso-cookies').hide();
+            jQuery('#warning-cookies').hide();
         }
     }
 
-    acceptCookie() {
+    acceptCookie(): void {
         this.setCookie('mariogonzalezduarte-web-aviso-cookies', '1', 365);
         jQuery('#warning-cookies').slideToggle('slow');
     }
@@ -193,24 +186,25 @@ export class ResumeComponent implements OnInit, AfterViewInit {
     }
 
 
-    showFormContact() {
+    showFormContact(): void {
         this.modal.showModal('contactModal');
     }
 
-    calculatePeriod(dateFrom: string, dateTo: string) {
+    calculatePeriod(dateFrom: string, dateTo: string): string {
         let period = '',
-            currentDate: Date = new Date(),
-            currentDateFormated: string = currentDate.getDate() + '/' + (currentDate.getMonth() + 1) + '/' + currentDate.getFullYear(),
-            dateF: any = dateFrom.split('/'),
-            dateT: any = dateTo ? dateTo.split('/') : currentDateFormated.split('/'),
-            fDate1: any = Date.UTC(dateF[2], dateF[1] - 1, dateF[0]),
-            fDate2: any = Date.UTC(dateT[2], dateT[1] - 1, dateT[0]),
-            dif: any = fDate2 - fDate1,
-            days: number = Math.floor(dif / (1000 * 60 * 60 * 24)),
             months = 0,
             years = 0,
             txtMonth = '',
             txtYear = '';
+
+        const currentDate: Date = new Date(),
+              currentDateFormated: string = currentDate.getDate() + '/' + (currentDate.getMonth() + 1) + '/' + currentDate.getFullYear(),
+              dateF: any = dateFrom.split('/'),
+              dateT: any = dateTo ? dateTo.split('/') : currentDateFormated.split('/'),
+              fDate1: any = Date.UTC(dateF[2], dateF[1] - 1, dateF[0]),
+              fDate2: any = Date.UTC(dateT[2], dateT[1] - 1, dateT[0]),
+              dif: any = fDate2 - fDate1,
+              days: number = Math.floor(dif / (1000 * 60 * 60 * 24));
 
         months = Math.ceil(days / 30);
         period = months > 1 ? '(' + months + ' LIT_MONTHS)' : '(' + months + ' LIT_MONTH)';

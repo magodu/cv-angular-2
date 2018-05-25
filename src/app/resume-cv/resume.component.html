@@ -196,7 +196,7 @@
         <footer id="footer" class="pagewidth">
             <p class="back-top"><a class="main" (click)="changeSection('header')">{{'buttonToTop' | translate}}</a></p>
             <div class="footer-text clearfix">
-                <div>{{cvData?.personalData?.name}} • {{currentYear}}&nbsp;&nbsp; • <a href="javascript:;" [routerLink]="['privacity-policy']" target="_blank">Política de Privacidad</a> • <a href="javascript:;" [routerLink]="['cookies-policy']" target="_blank">Política de Cookies</a></div>
+                <div>{{cvData?.personalData?.name}} • {{currentYear}}&nbsp;&nbsp; • <a href="javascript:;" [routerLink]="['privacity-policy']" target="_blank">{{'rgpd.privacityPolicyLink' | translate}}</a> • <a href="javascript:;" [routerLink]="['cookies-policy']" target="_blank">{{'rgpd.cookiesPolicyLink' | translate}}</a></div>
             </div>
         </footer>
     </div>
@@ -206,7 +206,7 @@
 <div class="container-fluid" id="warning-cookies">
     <div class="row">
         <div id="info-cookies">
-            <p>{{'rgpd.warning' | translate}} 
+            <p>{{'rgpd.warning' | translate}}
             <a href="javascript:;" [routerLink]="['cookies-policy']" target="_blank">{{'rgpd.cookiesPolicy' | translate}}</a>
             <a (click)="acceptCookie();" style="cursor:pointer;">{{'rgpd.closebutton' | translate}}</a></p>
         </div>

@@ -55,6 +55,8 @@
         "cookiesPolicy": "cookies policy.",
         "clauseAccept": "I accept the sending clauses",
         "readClauses": "See clauses",
-        "closebutton": "Close"
+        "closebutton": "Close",
+        "privacityPolicyLink": "Privacity policy",
+        "cookiesPolicyLink": "Cookies policy"
     }
 }

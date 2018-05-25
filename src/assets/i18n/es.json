@@ -55,6 +55,8 @@
         "cookiesPolicy": "política de cookies.",
         "clauseAccept": "Acepto las cláusulas de envío",
         "readClauses": "Leer cláusulas",
-        "closebutton": "Cerrar"
+        "closebutton": "Cerrar",
+        "privacityPolicyLink": "Política de Privacidad",
+        "cookiesPolicyLink": "Política de Cookies"
     }
 }

@@ -9,15 +9,15 @@ import { ResumeService } from './resume.service';
 export class ParallaxDirective {
     headerHeight: number = 0;
     MOBILE_WIDTH: number = 0;
-    windowWidth: number = 0; 
+    windowWidth: number = 0;
 
 
     constructor(@Inject(DOCUMENT) private document: any, private _resumeService: ResumeService) {
-        
+
         this.MOBILE_WIDTH = 760;
-        this.windowWidth = jQuery(window).width(); 
+        this.windowWidth = jQuery(window).width();
     }
-    
+
     @HostListener(' window:scroll', ['$event']) onScroll($event: Event) {
         const scrollPosition: number = this.document.documentElement.scrollTop || document.body.scrollTop;
         this.redrawDotNav(scrollPosition);
@@ -40,9 +40,7 @@ export class ParallaxDirective {
         const section4Top: number = (jQuery('#training').offset().top) - 1;
         const section5Top: number = (jQuery('#languages').offset().top) - 1;
         const section6Top: number = (jQuery('#contact').offset().top) - 1;
-
         const menuBarHeight: number = this.windowWidth <= this.MOBILE_WIDTH ? document.querySelector('.clearfix nav').clientHeight : document.querySelector('.main-nav').clientHeight;
-     
 
         if (scrollPosition < (section2Top - menuBarHeight)) {
             this._resumeService.sendScrollEvent('header');

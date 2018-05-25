@@ -5,12 +5,14 @@ import { HttpModule, Http } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { AgmCoreModule } from 'angular2-google-maps/core';
-import { TranslateModule, TranslateLoader} from "@ngx-translate/core";
-import { TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
-import { routing } from "./app.routing";
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-import { ResumeComponent } from "./resume-cv/resume.component";
+import { ResumeComponent } from './resume-cv/resume.component';
 import { ParallaxDirective } from './resume-cv/parallax.directive';
 import { MenuDirective } from './resume-cv/menu.directive';
 import { BackgroundDirective } from './resume-cv/background.directive';
@@ -25,12 +27,12 @@ import { PrivacityPolicyComponent } from './policy/privacity-policy/privacity-po
 
 import { ResumeService } from './resume-cv/resume.service';
 import { ContactFormService } from './contact-form/contact-form.service';
-import { HttpService } from "./shared/http.service";
+import { HttpService } from './shared/http.service';
 
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
-    return new TranslateHttpLoader(http, "assets/i18n/", ".json");
+    return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
 
@@ -51,7 +53,7 @@ export function HttpLoaderFactory(http: Http) {
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyD-xSxeguqtWK4kNUrDTTU0gsNK0iXIYK4'
         }),
-        routing
+        AppRoutingModule
     ],
     declarations: [
         AppComponent,
@@ -59,15 +61,21 @@ export function HttpLoaderFactory(http: Http) {
         ModalsComponent,
         GoogleMapsComponent,
         AnimatedPhoneComponent,
-        ContactFormComponent,     
+        ContactFormComponent,
         ParallaxDirective,
         MenuDirective,
         BackgroundDirective,
         CookiesPolicyComponent,
         PrivacityPolicyComponent
     ],
-    providers: [ {provide: APP_BASE_HREF, useValue : '/' }, ResumeService, HttpService, ContactFormService ],
-    bootstrap: [ AppComponent ]
+    providers: [
+        { provide: APP_BASE_HREF, useValue : '/' },
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
+        ResumeService,
+        HttpService,
+        ContactFormService
+    ],
+    bootstrap: [AppComponent]
 })
 
 export class AppModule { }

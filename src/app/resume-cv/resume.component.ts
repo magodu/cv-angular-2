@@ -43,7 +43,6 @@ export class ResumeComponent implements OnInit, AfterViewInit {
     public cvData: any;
     public currentYear: number;
 
-    //labelActive = false;
     public currentSection = '';
 
     public phoneDivOpened = false;

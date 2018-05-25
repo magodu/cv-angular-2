@@ -1,5 +1,10 @@
 /* tslint:disable:no-unused-variable */
 
+import { DebugElement } from '@angular/core';
+import { ComponentFixture, TestBed, async, fakeAsync, tick, inject } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { MockBackend, MockConnection } from '@angular/http/testing';
+
 import {
     HttpModule,
     Http,
@@ -10,7 +15,6 @@ import {
     RequestMethod
 } from '@angular/http';
 
-import { Observable } from "rxjs/Observable";
 
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,10 +22,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 
-import { routing } from "../app.routing";
+import { AppRoutingModule } from '../app-routing.module';
 import { AppComponent } from '../app.component';
-import { ResumeComponent } from "../resume-cv/resume.component";
+import { ResumeComponent } from '../resume-cv/resume.component';
 import { ParallaxDirective } from '../resume-cv/parallax.directive';
 import { MenuDirective } from '../resume-cv/menu.directive';
 import { BackgroundDirective } from '../resume-cv/background.directive';
@@ -31,14 +37,8 @@ import { GoogleMapsComponent } from '../google-maps-component/google-maps.compon
 import { ContactFormComponent } from '../contact-form/contact-form.component';
 import { ResumeService } from '../resume-cv/resume.service';
 import { ContactFormService } from '../contact-form/contact-form.service';
-import { HttpService } from "../shared/http.service";
-import { TranslateModule, TranslateLoader} from "@ngx-translate/core";
-import { TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { HttpService } from '../shared/http.service';
 
-import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, async, fakeAsync, tick, inject } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { MockBackend, MockConnection } from '@angular/http/testing';
 
 
 const mockHttpProvider = {
@@ -64,7 +64,7 @@ describe('ResumeComponent', () => {
                 Ng2Bs3ModalModule,
                 TranslateModule.forRoot(),
                 AgmCoreModule.forRoot(),
-                routing
+                AppRoutingModule
             ],
             declarations: [
                 AppComponent,
@@ -72,7 +72,7 @@ describe('ResumeComponent', () => {
                 ModalsComponent,
                 GoogleMapsComponent,
                 AnimatedPhoneComponent,
-                ContactFormComponent,     
+                ContactFormComponent,
                 ParallaxDirective,
                 MenuDirective,
                 BackgroundDirective
@@ -84,7 +84,7 @@ describe('ResumeComponent', () => {
 
     }));
 
-  
+
     it('should create component', async(inject([ResumeService, HttpService, Http],(service) => {
         TestBed.compileComponents().then(() => {
             let fixture = TestBed.createComponent(ResumeComponent);
@@ -121,7 +121,7 @@ describe('ResumeComponent', () => {
 
         spy.calls.mostRecent().returnValue.subscribe (() => {
             fixture.detectChanges();
-            
+
             expect(app.cvData).toBeDefined();
             actual = Object.keys(app.cvData).sort();
             expect(actual).toEqual(expected);
@@ -152,7 +152,7 @@ describe('ResumeComponent', () => {
 
             expect(this.titleEl.nativeElement.textContent).toBe(app.cvData.title.nameTitle);
             expect(this.descriptionEl.nativeElement.textContent).toBe(app.cvData.title.descriptionTitle);
-            
+
             done();
         });
     });

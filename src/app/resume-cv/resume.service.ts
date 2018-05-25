@@ -16,8 +16,6 @@ export class ResumeService {
 
     urlData: string = 'https://cv-data-42f26.firebaseio.com/LANGUAGE.json';
 
-    constructor(private _httpService: HttpService, private _translate: TranslateService) { }
-
     dotsCollection: Object[] = [
         {
             title: 'title_main',
@@ -40,13 +38,15 @@ export class ResumeService {
         }
     ];
 
+    constructor(private _httpService: HttpService, private _translate: TranslateService) { }
+
     getDotsCollection() {
         return this.dotsCollection;
     }
 
     getData() {
-        let language = this._translate.currentLang,
-            serviceUrl = this.urlData.replace(/LANGUAGE/, language);
+        const language = this._translate.currentLang,
+              serviceUrl = this.urlData.replace(/LANGUAGE/, language);
 
         return this._httpService.httpGet(serviceUrl);
     }

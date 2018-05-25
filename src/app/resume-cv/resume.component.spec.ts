@@ -24,6 +24,7 @@ import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import { TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppRoutingModule } from '../app-routing.module';
 import { AppComponent } from '../app.component';
@@ -35,6 +36,9 @@ import { AnimatedPhoneComponent } from '../animated-phone/animated-phone.compone
 import { ModalsComponent } from '../modals-component/modals.component';
 import { GoogleMapsComponent } from '../google-maps-component/google-maps.component';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
+import { CookiesPolicyComponent } from '../policy/cookies-policy/cookies-policy.component';
+import { PrivacityPolicyComponent } from '../policy/privacity-policy/privacity-policy.component';
+
 import { ResumeService } from '../resume-cv/resume.service';
 import { ContactFormService } from '../contact-form/contact-form.service';
 import { HttpService } from '../shared/http.service';
@@ -75,10 +79,17 @@ describe('ResumeComponent', () => {
                 ContactFormComponent,
                 ParallaxDirective,
                 MenuDirective,
-                BackgroundDirective
+                BackgroundDirective,
+                CookiesPolicyComponent,
+                PrivacityPolicyComponent
             ],
-            providers: [ {provide: APP_BASE_HREF, useValue : '/' }, ResumeService, HttpService, ContactFormService ],
-
+            providers: [
+              { provide: APP_BASE_HREF, useValue : '/' },
+              { provide: LocationStrategy, useClass: HashLocationStrategy },
+              ResumeService,
+              HttpService,
+              ContactFormService
+            ],
         });
         TestBed.compileComponents();
 

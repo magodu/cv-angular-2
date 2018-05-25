@@ -18,6 +18,11 @@ import { AnimatedPhoneComponent } from './animated-phone/animated-phone.componen
 import { ModalsComponent } from './modals-component/modals.component';
 import { GoogleMapsComponent } from './google-maps-component/google-maps.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+
+import { CookiesPolicyComponent } from './policy/cookies-policy/cookies-policy.component';
+import { PrivacityPolicyComponent } from './policy/privacity-policy/privacity-policy.component';
+
+
 import { ResumeService } from './resume-cv/resume.service';
 import { ContactFormService } from './contact-form/contact-form.service';
 import { HttpService } from "./shared/http.service";
@@ -57,7 +62,9 @@ export function HttpLoaderFactory(http: Http) {
         ContactFormComponent,     
         ParallaxDirective,
         MenuDirective,
-        BackgroundDirective
+        BackgroundDirective,
+        CookiesPolicyComponent,
+        PrivacityPolicyComponent
     ],
     providers: [ {provide: APP_BASE_HREF, useValue : '/' }, ResumeService, HttpService, ContactFormService ],
     bootstrap: [ AppComponent ]

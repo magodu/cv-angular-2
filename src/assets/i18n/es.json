@@ -49,5 +49,12 @@
     "contactTextWarning": "Nota:",
     "contactTextExplanation": "Debido a que mi nacionalidad es española, para poder optar a posiciones en Estados Unidos es necesario que la empresa interesada proporcione una VIsa internacional de trabajo",
     "loading": "Cargando",
-    "loadingError": "Ha ocurrido un error al cargar los datos. Intente recargar la página."
+    "loadingError": "Ha ocurrido un error al cargar los datos. Intente recargar la página.",
+    "rgpd": {
+        "warning": "Esta web utiliza cookies para poder ofrecer una mejor experiencia de usuario. Si continúas navegando estarás aceptando su uso, así como la",
+        "cookiesPolicy": "política de cookies.",
+        "clauseAccept": "Acepto las cláusulas de envío",
+        "readClauses": "Leer cláusulas",
+        "closebutton": "Cerrar"
+    }
 }

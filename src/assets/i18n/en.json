@@ -49,5 +49,12 @@
     "contactTextWarning": "Notice:",
     "contactTextExplanation": "For being available to US position, is necessary to be sponsored in an international Visa, due to I'm Spanish.",
     "loading": "Loading",
-    "loadingError": "Error loading data has occurred. Try to reload the site."
+    "loadingError": "Error loading data has occurred. Try to reload the site.",
+    "rgpd": {
+        "warning": "This web uses cookies to offer a better user experience. If you continue navigating you will be accepting their use, and the",
+        "cookiesPolicy": "cookies policy.",
+        "clauseAccept": "I accept the sending clauses",
+        "readClauses": "See clauses",
+        "closebutton": "Close"
+    }
 }

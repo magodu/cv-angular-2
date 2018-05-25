@@ -1,5 +1,4 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser'
 import { Subscription } from 'rxjs/Subscription';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -142,11 +141,51 @@ export class ResumeComponent implements OnInit, AfterViewInit {
         this.menu.toggleMobileMenu();
     }
 
+    private getCookie(c_name) {
+        var c_value = document.cookie;
+        var c_start = c_value.indexOf(' ' + c_name + '=');
+        
+        if (c_start === -1) {
+            c_start = c_value.indexOf(c_name + '=');
+        }
+        if (c_start === -1) {
+            c_value = null;
+        } else {
+            c_start = c_value.indexOf('=', c_start) + 1;
+            var c_end = c_value.indexOf(';', c_start);
+            if (c_end === -1){
+                c_end = c_value.length;
+            }
+            c_value = unescape(c_value.substring(c_start, c_end));
+        }
+        return c_value;
+    }
+
+    private setCookie(c_name, value, exdays) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + exdays);
+        var c_value = escape(value) + ((exdays === null) ? '' : '; expires=' + exdate.toUTCString());
+        document.cookie = c_name + '=' + c_value;
+    }
+
+    private showCookieAlert() {
+        if (this.getCookie('mariogonzalezduarte-web-aviso-cookies') === '1') {
+            jQuery('#aviso-cookies').hide();
+        }
+    }
+
+    acceptCookie() {
+        this.setCookie('mariogonzalezduarte-web-aviso-cookies', '1', 365);
+        jQuery('#aviso-cookies').slideToggle('slow');
+    }
+
+
     ngAfterViewInit() {
         this.getData();
     }
 
     ngOnInit() {
+        this.showCookieAlert();
         this.getCurrentYear();
         this.dotsCollection = this._resumeService.getDotsCollection();
     }

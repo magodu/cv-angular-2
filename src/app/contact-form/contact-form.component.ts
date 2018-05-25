@@ -56,16 +56,23 @@ export class ContactFormComponent implements OnInit {
         }
     }
 
+
+    setCheckboxValue() {
+        if (this.contactForm.controls['acceptConditions'].value) {
+            this.contactForm.controls['acceptConditions'].updateValueAndValidity();
+        } else {
+            this.contactForm.controls['acceptConditions'].setErrors({'required': true});
+        }
+    }
+
     private initForm() {
         const EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-        let name = '';
-        let email = '';
-        let message = '';
 
         this.contactForm = this.formBuilder.group({
-            'name': [name, Validators.required],
-            'email': [email, [Validators.required, Validators.pattern(EMAIL_REGEXP)]],
-            'message': [message, Validators.required]
+            'name': ['', Validators.required],
+            'email': ['', [Validators.required, Validators.pattern(EMAIL_REGEXP)]],
+            'message': ['', Validators.required],
+            'acceptConditions': ['', Validators.required]
         });
 
         this.toggleDisableForm(false);

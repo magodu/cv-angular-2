@@ -13,6 +13,12 @@
                 <textarea placeholder="{{'contactForm.placeholders.message' | translate}}" tabindex="3" formControlName="message" [ngClass]="{'error': contactForm.controls['message'].invalid && !contactForm.controls['message'].pristine}"></textarea>
             </fieldset>
             <fieldset>
+                <label class="conditions">
+                    <input type="checkbox" role="checkbox" formControlName="acceptConditions" (change)="setCheckboxValue()">{{'rgpd.clauseAccept' | translate}} - 
+                </label>
+                <a href="javascript:;" [routerLink]="['privacity-policy']" target="_blank">{{'rgpd.readClauses' | translate}}</a>
+            </fieldset>
+            <fieldset>
                 <button name="submit" type="submit" id="contact-submit" [disabled]="!contactForm.valid || isLoading" (click)="sendEmail()" [innerHTML]="isLoading ? ('contactForm.button.sending' | translate) : ('contactForm.button.submit' | translate)"></button>
             </fieldset>
         </form>

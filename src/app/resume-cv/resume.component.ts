@@ -30,7 +30,7 @@ export class ResumeComponent implements OnInit, AfterViewInit {
 
     subscription: Subscription;
     dotsCollection: Object[];
-    
+
     mapOptions: Object = {
         zoom: 4,
         lat: 42.3133735,
@@ -43,8 +43,8 @@ export class ResumeComponent implements OnInit, AfterViewInit {
 
     modalData: string;
 
-    currentSection: string = '';
-    labelActive: boolean = false;
+    currentSection = '';
+    labelActive = false;
     datesLiterals: DateLiteral = {
         month: '',
         months: '',
@@ -52,13 +52,13 @@ export class ResumeComponent implements OnInit, AfterViewInit {
         years: ''
     };
 
-    public phoneDivOpened: boolean = false;
+    public phoneDivOpened = false;
 
     constructor(private _resumeService: ResumeService, public _translate: TranslateService) {
         _translate.addLangs(['en', 'es']);
         _translate.setDefaultLang('en');
 
-        let browserLang = _translate.getBrowserLang();
+        const browserLang = _translate.getBrowserLang();
         _translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
 
         this.subscription = this._resumeService.scrollEv$.subscribe(
@@ -69,7 +69,7 @@ export class ResumeComponent implements OnInit, AfterViewInit {
     }
 
     getCurrentYear() {
-        let currentDate = new Date();
+        const currentDate = new Date();
         this.currentYear = currentDate.getFullYear();
     };
 
@@ -82,7 +82,7 @@ export class ResumeComponent implements OnInit, AfterViewInit {
                 bodyText: literal
             };
             this.modal.showAlertModal(modalData);
-        }); 
+        });
     }
 
     getData() {
@@ -93,16 +93,16 @@ export class ResumeComponent implements OnInit, AfterViewInit {
 
                         this._translate.get('dates').subscribe((literals: DateLiteral) => {
                             this.datesLiterals = literals;
-                        }); 
+                        });
 
                         this.modal.hideLoadingModal();
-            },       
+            },
             err => {    // the second argument is a function which runs on error
                         console.error(err);
                         this.modal.hideLoadingModal();
                         this.openAlertModal();
 
-            },                  
+            },
             () => console.log('loading data: done')     // the third argument is a function which runs on completion
         );
     }
@@ -116,7 +116,7 @@ export class ResumeComponent implements OnInit, AfterViewInit {
         this._translate.use(language).subscribe(
             data => {
                 this.getData();
-            },       
+            },
             err => {
                 console.error(err);
             }
@@ -125,7 +125,7 @@ export class ResumeComponent implements OnInit, AfterViewInit {
 
 
     showPhones() {
-        this.phoneDivOpened = !this.phoneDivOpened; 
+        this.phoneDivOpened = !this.phoneDivOpened;
     }
 
     onModalOutput(value) {
@@ -142,9 +142,10 @@ export class ResumeComponent implements OnInit, AfterViewInit {
     }
 
     private getCookie(c_name) {
-        var c_value = document.cookie;
-        var c_start = c_value.indexOf(' ' + c_name + '=');
-        
+        let c_value = document.cookie;
+        let c_start = c_value.indexOf(' ' + c_name + '=');
+        let c_end;
+
         if (c_start === -1) {
             c_start = c_value.indexOf(c_name + '=');
         }
@@ -152,19 +153,20 @@ export class ResumeComponent implements OnInit, AfterViewInit {
             c_value = null;
         } else {
             c_start = c_value.indexOf('=', c_start) + 1;
-            var c_end = c_value.indexOf(';', c_start);
-            if (c_end === -1){
+            c_end = c_value.indexOf(';', c_start);
+
+            if (c_end === -1) {
                 c_end = c_value.length;
             }
-            c_value = unescape(c_value.substring(c_start, c_end));
+            c_value = decodeURI(c_value.substring(c_start, c_end));
         }
         return c_value;
     }
 
     private setCookie(c_name, value, exdays) {
-        var exdate = new Date();
+        const exdate = new Date();
         exdate.setDate(exdate.getDate() + exdays);
-        var c_value = escape(value) + ((exdays === null) ? '' : '; expires=' + exdate.toUTCString());
+        const c_value = encodeURI(value) + ((exdays === null) ? '' : '; expires=' + exdate.toUTCString());
         document.cookie = c_name + '=' + c_value;
     }
 
@@ -176,7 +178,7 @@ export class ResumeComponent implements OnInit, AfterViewInit {
 
     acceptCookie() {
         this.setCookie('mariogonzalezduarte-web-aviso-cookies', '1', 365);
-        jQuery('#aviso-cookies').slideToggle('slow');
+        jQuery('#warning-cookies').slideToggle('slow');
     }
 
 
@@ -196,7 +198,7 @@ export class ResumeComponent implements OnInit, AfterViewInit {
     }
 
     calculatePeriod(dateFrom: string, dateTo: string) {
-        let period: string = '',
+        let period = '',
             currentDate: Date = new Date(),
             currentDateFormated: string = currentDate.getDate() + '/' + (currentDate.getMonth() + 1) + '/' + currentDate.getFullYear(),
             dateF: any = dateFrom.split('/'),
@@ -205,10 +207,10 @@ export class ResumeComponent implements OnInit, AfterViewInit {
             fDate2: any = Date.UTC(dateT[2], dateT[1] - 1, dateT[0]),
             dif: any = fDate2 - fDate1,
             days: number = Math.floor(dif / (1000 * 60 * 60 * 24)),
-            months: number = 0,
-            years: number = 0,
-            txtMonth: string = '',
-            txtYear: string = '';
+            months = 0,
+            years = 0,
+            txtMonth = '',
+            txtYear = '';
 
         months = Math.ceil(days / 30);
         period = months > 1 ? '(' + months + ' LIT_MONTHS)' : '(' + months + ' LIT_MONTH)';
